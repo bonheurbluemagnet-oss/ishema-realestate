@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="iconGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5b324" />
+      <stop offset="50%" stop-color="#e59f0c" />
+      <stop offset="100%" stop-color="#c98200" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(0, 20)">
+    <!-- Towers -->
+    <polygon points="110,240 145,225 145,175 110,195" fill="#e59f0c" />
+    <polygon points="145,248 190,220 190,135 145,165" fill="#0b2f5c" />
+    <!-- Center Tower -->
+    <polygon points="195,250 256,205 256,50 195,100" fill="#0b2f5c" />
+    <polygon points="256,205 310,240 310,90 256,50" fill="url(#iconGold)" />
+    <!-- Right Tower -->
+    <polygon points="305,255 355,220 355,140 305,175" fill="#0b2f5c" />
+    <polygon points="355,260 390,238 390,190 355,208" fill="#e59f0c" />
+
+    <!-- Sun & Mountains -->
+    <circle cx="420" cy="220" r="35" fill="#e59f0c" />
+    <path d="M 370,270 Q 410,225 450,235 Q 480,245 505,290 L 370,290 Z" fill="#0b2f5c" />
+
+    <!-- Chimney -->
+    <polygon points="345,250 345,205 368,205 368,265" fill="#0b2f5c" />
+    <polygon points="341,205 372,205 372,198 341,198" fill="#071d38" />
+
+    <!-- Roof -->
+    <polygon points="256,165 470,315 445,330 256,198 67,330 42,315" fill="#0b2f5c" />
+    <polygon points="256,202 430,325 82,325" fill="#ffffff" />
+
+    <!-- 4-Pane Window -->
+    <g transform="translate(238, 245)">
+      <rect x="0" y="0" width="16" height="16" rx="2" fill="#e59f0c" />
+      <rect x="20" y="0" width="16" height="16" rx="2" fill="#e59f0c" />
+      <rect x="0" y="20" width="16" height="20" rx="2" fill="#e59f0c" />
+      <rect x="20" y="20" width="16" height="20" rx="2" fill="#e59f0c" />
+    </g>
+
+    <!-- Base Curve -->
+    <path d="M 30,355 Q 256,310 482,345 C 420,360 270,352 30,355 Z" fill="url(#iconGold)" />
+  </g>
+</svg>

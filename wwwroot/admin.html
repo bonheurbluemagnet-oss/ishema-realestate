@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | ISHEMA REAL ESTATE</title>
+  <meta name="description" content="Administrative property management and publishing portal for ISHEMA Real Estate.">
+  <link rel="icon" type="image/svg+xml" href="images/logo-icon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .admin-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: calc(100vh - 140px);
+    }
+    .admin-sidebar {
+      background: var(--primary-dark);
+      color: #cbd5e1;
+      padding: 30px 20px;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .admin-sidebar-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 24px;
+    }
+    .admin-menu-item {
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #94a3b8;
+      transition: var(--transition);
+    }
+    .admin-menu-item:hover, .admin-menu-item.active {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+    .admin-menu-item.active {
+      background: var(--accent);
+      color: #ffffff;
+    }
+    .admin-content-area {
+      padding: 36px 40px;
+      background: var(--bg-main);
+    }
+    /* Upload Gallery Manager */
+    .upload-dropzone {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-lg);
+      padding: 35px 20px;
+      text-align: center;
+      background: var(--bg-subtle);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .upload-dropzone:hover, .upload-dropzone.dragover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+    .photos-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .photo-preview-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 2px solid var(--border);
+      background: #000;
+      height: 120px;
+    }
+    .photo-preview-card.is-cover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    .photo-preview-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .photo-preview-actions {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(7, 21, 36, 0.85);
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 6px;
+      font-size: 0.72rem;
+    }
+    .photo-preview-actions button {
+      background: transparent;
+      color: #fff;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    .photo-preview-actions button:hover {
+      color: var(--gold);
+    }
+    .cover-badge-tag {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    /* Video Box */
+    .video-preview-wrapper {
+      margin-top: 14px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+      max-width: 480px;
+    }
+    .video-preview-wrapper video {
+      width: 100%;
+      max-height: 240px;
+      display: block;
+    }
+    /* Admin Table */
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+    .admin-table th, .admin-table td {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    .admin-table th {
+      background: var(--bg-subtle);
+      font-weight: 700;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+    }
+    .admin-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+    .admin-table tr:hover {
+      background: #f8fafc;
+    }
+    @media (max-width: 900px) {
+      .admin-layout { grid-template-columns: 1fr; }
+      .admin-sidebar { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .admin-content-area { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <div class="header-contact-links">
+        <span>⚙️ ISHEMA REAL ESTATE — Secure Admin Console</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="index.html" style="color: var(--gold); font-size: 0.85rem; font-weight: 600;">← Back to Public Website</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <img src="images/logo-icon.svg" alt="ISHEMA Real Estate Logo" class="logo-brand-img">
+        <div class="logo-text">
+          <span class="logo-title">ISHEMA <span>ADMIN</span></span>
+          <span class="logo-tagline">Property & Media Management</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <span id="admin-user-display" style="font-weight: 600; font-size: 0.9rem; color: var(--primary); margin-right: 12px;">
+          Checking Auth...
+        </span>
+        <button class="btn btn-outline btn-sm" onclick="handleAdminLogout()">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login Gate for Non-Admin -->
+  <div id="admin-login-gate" style="display: none; padding: 70px 20px;">
+    <div style="max-width: 440px; margin: 0 auto; background: #fff; padding: 36px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-lg);">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <img src="images/logo.svg" alt="ISHEMA Real Estate Logo" style="max-height: 85px; margin: 0 auto 16px auto; display: block;">
+        <h2 style="color: var(--primary); font-size: 1.6rem;">Admin Authentication</h2>
+        <p style="color: var(--text-muted); font-size: 0.88rem;">Please log in with authorized administrator credentials.</p>
+      </div>
+
+      <form id="admin-login-form" onsubmit="handleAdminLogin(event)">
+        <div class="form-group">
+          <label for="admin-email">Admin Email *</label>
+          <input type="email" id="admin-email" class="form-control" required value="admin@ishema.rw">
+        </div>
+        <div class="form-group">
+          <label for="admin-pass">Admin Password *</label>
+          <input type="password" id="admin-pass" class="form-control" required value="Admin@123456">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+          Authenticate as Admin
+        </button>
+      </form>
+
+      <div style="margin-top: 20px; font-size: 0.8rem; color: var(--text-muted); background: var(--bg-subtle); padding: 10px; border-radius: var(--radius-sm);">
+        <strong>Default Credentials:</strong><br>
+        Email: <code>admin@ishema.rw</code><br>
+        Password: <code>Admin@123456</code>
+      </div>
+    </div>
+  </div>
+
+  <!-- Authenticated Admin Layout -->
+  <div id="admin-dashboard-container" class="admin-layout" style="display: none;">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div style="display: flex; align-items: center; gap: 12px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <img id="admin-avatar-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold);">
+        <div>
+          <strong id="admin-sidebar-name" style="color: #fff; font-size: 0.95rem; display: block;">Administrator</strong>
+          <span class="badge-tag badge-verified" style="font-size: 0.68rem; padding: 2px 6px;">Super Admin</span>
+        </div>
+      </div>
+
+      <ul class="admin-sidebar-menu">
+        <li class="admin-menu-item active" id="menu-props" onclick="switchAdminTab('props')">
+          <span>🏠</span> Manage Properties
+        </li>
+        <li class="admin-menu-item" id="menu-add" onclick="switchAdminTab('add')">
+          <span>➕</span> Add / Create Property
+        </li>
+        <li class="admin-menu-item" id="menu-inquiries" onclick="switchAdminTab('inquiries')">
+          <span>💬</span> Client Inquiries
+        </li>
+        <li class="admin-menu-item" id="menu-stats" onclick="switchAdminTab('stats')">
+          <span>📊</span> Overview & Stats
+        </li>
+      </ul>
+
+      <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; color: #94a3b8;">
+        Live Database: Connected<br>
+        Rwanda Cloud Storage: Ready
+      </div>
+    </aside>
+
+    <!-- Content Area -->
+    <main class="admin-content-area">
+      
+      <!-- TAB 1: PROPERTIES LIST -->
+      <section id="tab-props">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <div>
+            <h2 style="font-size: 1.7rem; color: var(--primary);">Real Estate Inventory (Database)</h2>
+            <p style="color: var(--text-muted); font-size: 0.92rem;">All live and saved properties stored in the database.</p>
+          </div>
+          <button class="btn btn-accent" onclick="switchAdminTab('add')">+ Create New Property</button>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Cover</th>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Price (RWF / USD)</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-props-tbody">
+              <!-- Dynamically populated from /api/properties?adminAll=true -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TAB 2: CREATE / EDIT PROPERTY FORM -->
+      <section id="tab-add" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <div>
+            <h2 style="font-size: 1.7rem; color: var(--primary);" id="property-form-title">Create & Publish Property</h2>
+            <p style="color: var(--text-muted); font-size: 0.92rem;">
+              Fill in all property attributes, upload real photos, and attach a video.
+            </p>
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="resetPropertyForm()">Reset Form</button>
+        </div>
+
+        <form id="admin-property-form" onsubmit="handlePublishProperty(event)" style="background: #fff; padding: 32px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+          <input type="hidden" id="editing-property-id" value="">
+
+          <!-- General Details -->
+          <h3 style="font-size: 1.15rem; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px;">1. Basic Property Information</h3>
+          
+          <div class="form-group">
+            <label for="form-title">Property Title *</label>
+            <input type="text" id="form-title" class="form-control" required placeholder="e.g. Modern 4-Bedroom Villa in Gacuriro">
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="form-type">Property Type *</label>
+              <select id="form-type" class="form-control" required onchange="handleTypeChange(this.value)">
+                <option value="House">House</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Land">Land</option>
+                <option value="Commercial">Commercial Property</option>
+                <option value="Office">Office</option>
+                <option value="Shop">Shop</option>
+                <option value="Villa">Villa</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="form-status">Listing Purpose *</label>
+              <select id="form-status" class="form-control" required>
+                <option value="sale">For Sale (Buy)</option>
+                <option value="rent">For Rent</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="form-price">Price Amount *</label>
+              <input type="number" id="form-price" class="form-control" required placeholder="e.g. 185000000">
+            </div>
+            <div class="form-group">
+              <label for="form-currency">Currency *</label>
+              <select id="form-currency" class="form-control" required>
+                <option value="RWF" selected>RWF (Rwandan Franc)</option>
+                <option value="USD">USD (US Dollar)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Location Hierarchy in Rwanda -->
+          <h3 style="font-size: 1.15rem; margin: 24px 0 16px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px;">2. Rwanda Administrative Location</h3>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="form-province">Province *</label>
+              <select id="form-province" class="form-control" required onchange="handleProvinceChange(this.value)">
+                <option value="Kigali City" selected>Kigali City</option>
+                <option value="Northern Province">Northern Province</option>
+                <option value="Southern Province">Southern Province</option>
+                <option value="Eastern Province">Eastern Province</option>
+                <option value="Western Province">Western Province</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="form-district">District *</label>
+              <input type="text" id="form-district" class="form-control" required value="Gasabo" placeholder="e.g. Gasabo, Kicukiro, Musanze, Rubavu">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="form-sector">Sector</label>
+              <input type="text" id="form-sector" class="form-control" placeholder="e.g. Kinyinya, Remera, Kimihurura">
+            </div>
+            <div class="form-group">
+              <label for="form-cell">Cell</label>
+              <input type="text" id="form-cell" class="form-control" placeholder="e.g. Gacuriro, Nyarutarama">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="form-village">Village / Neighborhood</label>
+              <input type="text" id="form-village" class="form-control" placeholder="e.g. Vision City, Kagugu">
+            </div>
+            <div class="form-group">
+              <label for="form-address">Exact Address / Street / UPI</label>
+              <input type="text" id="form-address" class="form-control" placeholder="e.g. KG 9 Ave 14, Plot 1/02/08/04/1234">
+            </div>
+          </div>
+
+          <!-- Physical Specifications -->
+          <h3 style="font-size: 1.15rem; margin: 24px 0 16px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px;">3. Physical Specifications & Features</h3>
+
+          <div class="form-grid-2" id="building-specs-group">
+            <div class="form-group">
+              <label for="form-bedrooms">Bedrooms</label>
+              <input type="number" id="form-bedrooms" class="form-control" value="4" min="0">
+            </div>
+            <div class="form-group">
+              <label for="form-bathrooms">Bathrooms</label>
+              <input type="number" id="form-bathrooms" class="form-control" value="3" min="0">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="form-parking">Parking Spaces</label>
+              <input type="number" id="form-parking" class="form-control" value="2" min="0">
+            </div>
+            <div class="form-group">
+              <label for="form-year">Year Built</label>
+              <input type="number" id="form-year" class="form-control" value="2024" min="1980" max="2030">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="form-size">Built Area (m²)</label>
+              <input type="number" id="form-size" class="form-control" placeholder="e.g. 350">
+            </div>
+            <div class="form-group">
+              <label for="form-land-size">Plot / Land Size (m²) *</label>
+              <input type="number" id="form-land-size" class="form-control" required placeholder="e.g. 500">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="form-furnished">Furnishing Status</label>
+            <select id="form-furnished" class="form-control">
+              <option value="Unfurnished">Unfurnished</option>
+              <option value="Semi-Furnished">Semi-Furnished</option>
+              <option value="Furnished">Fully Furnished</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="form-amenities">Amenities (comma-separated)</label>
+            <input type="text" id="form-amenities" class="form-control" value="Water Storage Tank, Solar Water Heating, CCTV, Paved Access, Garden, Security Gate" placeholder="e.g. Swimming Pool, Generator, Fiber Internet">
+          </div>
+
+          <div class="form-group">
+            <label for="form-desc">Full Property Description *</label>
+            <textarea id="form-desc" class="form-control" rows="4" required placeholder="Describe property architecture, zoning, views, accessibility..."></textarea>
+          </div>
+
+          <!-- Contact Information -->
+          <h3 style="font-size: 1.15rem; margin: 24px 0 16px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px;">4. Seller / Agent Contact Information</h3>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="form-phone">Direct Phone *</label>
+              <input type="tel" id="form-phone" class="form-control" required value="0780837936">
+            </div>
+            <div class="form-group">
+              <label for="form-whatsapp">WhatsApp Number *</label>
+              <input type="tel" id="form-whatsapp" class="form-control" required value="0780837936">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="form-email">Contact Email *</label>
+            <input type="email" id="form-email" class="form-control" required value="admin@ishema.rw">
+          </div>
+
+          <!-- Real Photos Upload Section -->
+          <h3 style="font-size: 1.15rem; margin: 24px 0 16px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px;">5. Real Property Photos (Multi-Upload)</h3>
+
+          <div class="upload-dropzone" id="images-dropzone" onclick="document.getElementById('file-input-images').click()">
+            <div style="font-size: 2.2rem; margin-bottom: 6px;">📷</div>
+            <strong style="color: var(--primary); display: block; margin-bottom: 4px;">Click to Browse or Drag & Drop Multiple Photos</strong>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Supported formats: JPG, JPEG, PNG, WEBP (Max 15MB each)</span>
+            <input type="file" id="file-input-images" multiple accept="image/jpeg,image/png,image/webp,image/jpg" style="display: none;" onchange="handleImageSelection(this.files)">
+          </div>
+
+          <div id="uploading-images-indicator" style="display: none; margin-top: 10px; color: var(--accent); font-weight: 600; font-size: 0.88rem;">
+            ⏳ Uploading photos to database server...
+          </div>
+
+          <!-- Preview & Cover Selection Grid -->
+          <div class="photos-preview-grid" id="photos-preview-container">
+            <!-- Uploaded photos render here with cover badge and remove action -->
+          </div>
+
+          <!-- Real Video Upload Section -->
+          <h3 style="font-size: 1.15rem; margin: 24px 0 16px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px;">6. Real Property Video (Tour / Walkthrough)</h3>
+
+          <div class="upload-dropzone" id="video-dropzone" onclick="document.getElementById('file-input-video').click()" style="max-width: 480px;">
+            <div style="font-size: 2.2rem; margin-bottom: 6px;">🎬</div>
+            <strong style="color: var(--primary); display: block; margin-bottom: 4px;">Click to Upload Video Tour</strong>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Supported: MP4, WEBM, MOV (Max 100MB)</span>
+            <input type="file" id="file-input-video" accept="video/mp4,video/webm,video/quicktime" style="display: none;" onchange="handleVideoSelection(this.files)">
+          </div>
+
+          <div id="uploading-video-indicator" style="display: none; margin-top: 10px; color: var(--accent); font-weight: 600; font-size: 0.88rem;">
+            ⏳ Uploading video file to server...
+          </div>
+
+          <!-- Video Preview Box -->
+          <div id="video-preview-container" style="display: none;">
+            <div class="video-preview-wrapper">
+              <video id="video-preview-player" controls playsinline></video>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm" onclick="removeVideo()" style="color: var(--danger); margin-top: 8px;">
+              ✕ Remove Video
+            </button>
+          </div>
+
+          <!-- Publish Action -->
+          <div style="margin-top: 36px; padding-top: 20px; border-top: 2px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+            <label class="checkbox-group">
+              <input type="checkbox" id="form-publish-now" checked>
+              <span>Publish immediately to public website</span>
+            </label>
+
+            <button type="submit" class="btn btn-accent" id="btn-submit-property" style="padding: 14px 36px; font-size: 1.05rem;">
+              PUBLISH PROPERTY
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- TAB 3: CLIENT INQUIRIES -->
+      <section id="tab-inquiries" style="display: none;">
+        <h2 style="font-size: 1.7rem; color: var(--primary); margin-bottom: 8px;">Client Inquiries & Viewing Requests</h2>
+        <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px;">Tour bookings and messages sent from property details pages.</p>
+        <div id="inquiries-container"></div>
+      </section>
+
+      <!-- TAB 4: OVERVIEW STATS -->
+      <section id="tab-stats" style="display: none;">
+        <h2 style="font-size: 1.7rem; color: var(--primary); margin-bottom: 20px;">System Overview</h2>
+        <div id="stats-cards-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="js/script.js"></script>
+  <script>
+    let currentAdminToken = localStorage.getItem('ishema_token');
+    let currentAdminUser = null;
+    let uploadedImagesList = []; // Array of { url, filename, is_cover }
+    let uploadedVideoData = null; // { url, filename }
+
+    // Check Auth on page load
+    async function checkAdminAuth() {
+      if (!currentAdminToken) {
+        showLoginGate();
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/auth/me', {
+          headers: { 'Authorization': `Bearer ${currentAdminToken}` }
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.user && data.user.role === 'admin') {
+            currentAdminUser = data.user;
+            showAdminDashboard();
+            loadAdminProperties();
+            loadAdminStats();
+          } else {
+            ISHEMA.showToast("Access denied: You must be logged in as an Administrator.");
+            showLoginGate();
+          }
+        } else {
+          showLoginGate();
+        }
+      } catch (err) {
+        showLoginGate();
+      }
+    }
+
+    function showLoginGate() {
+      document.getElementById('admin-login-gate').style.display = 'block';
+      document.getElementById('admin-dashboard-container').style.display = 'none';
+      document.getElementById('admin-user-display').textContent = 'Not Authenticated';
+    }
+
+    function showAdminDashboard() {
+      document.getElementById('admin-login-gate').style.display = 'none';
+      document.getElementById('admin-dashboard-container').style.display = 'grid';
+      document.getElementById('admin-user-display').textContent = `Admin: ${currentAdminUser.name}`;
+      document.getElementById('admin-sidebar-name').textContent = currentAdminUser.name;
+      if (currentAdminUser.photo_url) {
+        document.getElementById('admin-avatar-img').src = currentAdminUser.photo_url;
+      }
+    }
+
+    async function handleAdminLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('admin-email').value;
+      const password = document.getElementById('admin-pass').value;
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (res.ok && data.user) {
+          if (data.user.role !== 'admin') {
+            alert('This account is not authorized as an administrator. Please log in with admin@ishema.rw');
+            return;
+          }
+          currentAdminToken = data.token;
+          localStorage.setItem('ishema_token', data.token);
+          currentAdminUser = data.user;
+          showAdminDashboard();
+          loadAdminProperties();
+          ISHEMA.showToast("Admin session authenticated.");
+        } else {
+          alert(data.error || 'Invalid credentials');
+        }
+      } catch (err) {
+        alert('Server connection error');
+      }
+    }
+
+    function handleAdminLogout() {
+      if (currentAdminToken) {
+        fetch('/api/auth/logout', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${currentAdminToken}` }
+        });
+      }
+      localStorage.removeItem('ishema_token');
+      currentAdminToken = null;
+      currentAdminUser = null;
+      showLoginGate();
+    }
+
+    function switchAdminTab(tab) {
+      document.querySelectorAll('.admin-menu-item').forEach(el => el.classList.remove('active'));
+      const activeItem = document.getElementById(`menu-${tab}`);
+      if (activeItem) activeItem.classList.add('active');
+
+      ['props', 'add', 'inquiries', 'stats'].forEach(t => {
+        const section = document.getElementById(`tab-${t}`);
+        if (section) section.style.display = (t === tab) ? 'block' : 'none';
+      });
+
+      if (tab === 'props') loadAdminProperties();
+      if (tab === 'inquiries') loadAdminInquiries();
+      if (tab === 'stats') loadAdminStats();
+    }
+
+    // Load Properties from Database
+    async function loadAdminProperties() {
+      const tbody = document.getElementById('admin-props-tbody');
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 24px;">Loading properties from database...</td></tr>';
+
+      try {
+        const res = await fetch('/api/properties?adminAll=true', {
+          headers: { 'Authorization': `Bearer ${currentAdminToken}` }
+        });
+        const data = await res.json();
+        if (res.ok && data.properties) {
+          if (data.properties.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 24px;">No properties in database yet. Click "Create New Property" to add one!</td></tr>';
+            return;
+          }
+
+          tbody.innerHTML = data.properties.map(p => `
+            <tr>
+              <td style="width: 70px;">
+                <img src="${p.cover_image || (p.images && p.images[0] ? p.images[0].url : '')}" style="width: 60px; height: 45px; object-fit: cover; border-radius: 6px;">
+              </td>
+              <td>
+                <strong style="color: var(--primary);">${p.title}</strong>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">${p.address || ''}</div>
+              </td>
+              <td>${p.type} (${p.status.toUpperCase()})</td>
+              <td><strong>${Number(p.price).toLocaleString()} ${p.currency}</strong></td>
+              <td>${p.district}, ${p.province}</td>
+              <td>
+                <span class="badge-tag ${p.published ? 'badge-verified' : 'badge-rent'}">
+                  ${p.published ? 'Published' : 'Unpublished'}
+                </span>
+              </td>
+              <td>
+                <div style="display: flex; gap: 6px;">
+                  <a href="property.html?id=${p.id}" target="_blank" class="btn btn-outline btn-sm" title="View Public Page">👁️</a>
+                  <button class="btn btn-outline btn-sm" onclick="editProperty('${p.id}')" title="Edit Property">✏️</button>
+                  <button class="btn btn-outline btn-sm" onclick="togglePublishProperty('${p.id}')" title="${p.published ? 'Unpublish' : 'Publish'}">
+                    ${p.published ? 'Hide' : 'Show'}
+                  </button>
+                  <button class="btn btn-outline btn-sm" onclick="deleteProperty('${p.id}')" style="color: var(--danger);" title="Delete Permanently">🗑️</button>
+                </div>
+              </td>
+            </tr>
+          `).join('');
+        }
+      } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="7" style="color: red; padding: 24px;">Failed to load properties.</td></tr>';
+      }
+    }
+
+    // Toggle Publish Status
+    async function togglePublishProperty(id) {
+      try {
+        const res = await fetch(`/api/properties/${id}/publish`, {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${currentAdminToken}` }
+        });
+        const data = await res.json();
+        if (res.ok) {
+          ISHEMA.showToast(data.message);
+          loadAdminProperties();
+        }
+      } catch (e) {
+        alert('Failed to toggle publish status');
+      }
+    }
+
+    // Delete Property
+    async function deleteProperty(id) {
+      if (!confirm('Are you sure you want to permanently delete this property and its associated photos/video from the database?')) {
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/properties/${id}`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${currentAdminToken}` }
+        });
+        if (res.ok) {
+          ISHEMA.showToast('Property deleted successfully from database.');
+          loadAdminProperties();
+        }
+      } catch (e) {
+        alert('Delete failed');
+      }
+    }
+
+    // Edit Property: populate form
+    async function editProperty(id) {
+      try {
+        const res = await fetch(`/api/properties/${id}`);
+        const data = await res.json();
+        if (res.ok && data.property) {
+          const p = data.property;
+          document.getElementById('editing-property-id').value = p.id;
+          document.getElementById('property-form-title').textContent = `Edit Property: ${p.title}`;
+          document.getElementById('btn-submit-property').textContent = 'SAVE PROPERTY CHANGES';
+
+          document.getElementById('form-title').value = p.title;
+          document.getElementById('form-type').value = p.type;
+          document.getElementById('form-status').value = p.status;
+          document.getElementById('form-price').value = p.price;
+          document.getElementById('form-currency').value = p.currency;
+          document.getElementById('form-province').value = p.province;
+          document.getElementById('form-district').value = p.district;
+          document.getElementById('form-sector').value = p.sector || '';
+          document.getElementById('form-cell').value = p.cell || '';
+          document.getElementById('form-village').value = p.village || '';
+          document.getElementById('form-address').value = p.address || '';
+          document.getElementById('form-bedrooms').value = p.bedrooms || 0;
+          document.getElementById('form-bathrooms').value = p.bathrooms || 0;
+          document.getElementById('form-parking').value = p.parking || 0;
+          document.getElementById('form-year').value = p.year_built || 2024;
+          document.getElementById('form-size').value = p.size || 0;
+          document.getElementById('form-land-size').value = p.land_size || 0;
+          document.getElementById('form-furnished').value = p.furnished || 'Unfurnished';
+          document.getElementById('form-amenities').value = (p.amenities || []).join(', ');
+          document.getElementById('form-desc').value = p.description || '';
+          document.getElementById('form-phone').value = p.phone || '';
+          document.getElementById('form-whatsapp').value = p.whatsapp || '';
+          document.getElementById('form-email').value = p.email || '';
+          document.getElementById('form-publish-now').checked = p.published !== false;
+
+          // Populate existing images
+          uploadedImagesList = (p.images || []).map((img, idx) => ({
+            url: img.url,
+            filename: img.filename || 'img.jpg',
+            is_cover: img.is_cover || idx === 0
+          }));
+          renderPhotosPreview();
+
+          // Populate video if exists
+          if (p.video) {
+            uploadedVideoData = p.video;
+            const player = document.getElementById('video-preview-player');
+            player.src = p.video.url;
+            document.getElementById('video-preview-container').style.display = 'block';
+          } else {
+            removeVideo();
+          }
+
+          switchAdminTab('add');
+        }
+      } catch (e) {
+        alert('Could not fetch property details');
+      }
+    }
+
+    function resetPropertyForm() {
+      document.getElementById('editing-property-id').value = '';
+      document.getElementById('property-form-title').textContent = 'Create & Publish Property';
+      document.getElementById('btn-submit-property').textContent = 'PUBLISH PROPERTY';
+      document.getElementById('admin-property-form').reset();
+      uploadedImagesList = [];
+      uploadedVideoData = null;
+      renderPhotosPreview();
+      removeVideo();
+    }
+
+    // --- PHOTO UPLOAD & PREVIEW LOGIC ---
+    async function handleImageSelection(files) {
+      if (!files || files.length === 0) return;
+
+      const formData = new FormData();
+      for (let i = 0; i < files.length; i++) {
+        formData.append('images', files[i]);
+      }
+
+      const indicator = document.getElementById('uploading-images-indicator');
+      indicator.style.display = 'block';
+
+      try {
+        const res = await fetch('/api/upload/images', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${currentAdminToken}` },
+          body: formData
+        });
+        const data = await res.json();
+        if (res.ok && data.images) {
+          data.images.forEach((img, idx) => {
+            uploadedImagesList.push({
+              url: img.url,
+              filename: img.filename,
+              is_cover: uploadedImagesList.length === 0 && idx === 0
+            });
+          });
+          renderPhotosPreview();
+          ISHEMA.showToast(`${data.images.length} photos uploaded to server.`);
+        } else {
+          alert(data.error || 'Failed to upload images');
+        }
+      } catch (err) {
+        alert('Upload network error');
+      } finally {
+        indicator.style.display = 'none';
+        document.getElementById('file-input-images').value = '';
+      }
+    }
+
+    function renderPhotosPreview() {
+      const container = document.getElementById('photos-preview-container');
+      if (uploadedImagesList.length === 0) {
+        container.innerHTML = '<div style="font-size: 0.85rem; color: var(--text-muted); grid-column: 1 / -1;">No photos uploaded yet.</div>';
+        return;
+      }
+
+      container.innerHTML = uploadedImagesList.map((img, idx) => `
+        <div class="photo-preview-card ${img.is_cover ? 'is-cover' : ''}">
+          <img src="${img.url}">
+          ${img.is_cover ? '<span class="cover-badge-tag">Cover</span>' : ''}
+          <div class="photo-preview-actions">
+            <button type="button" onclick="setAsCover(${idx})">${img.is_cover ? '★' : 'Set Cover'}</button>
+            ${idx > 0 ? `<button type="button" onclick="moveImage(${idx}, -1)">←</button>` : ''}
+            ${idx < uploadedImagesList.length - 1 ? `<button type="button" onclick="moveImage(${idx}, 1)">→</button>` : ''}
+            <button type="button" onclick="removeImage(${idx})" style="color: #f87171;">✕</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function setAsCover(idx) {
+      uploadedImagesList.forEach((img, i) => img.is_cover = (i === idx));
+      renderPhotosPreview();
+    }
+
+    function moveImage(idx, delta) {
+      const target = idx + delta;
+      if (target < 0 || target >= uploadedImagesList.length) return;
+      const temp = uploadedImagesList[idx];
+      uploadedImagesList[idx] = uploadedImagesList[target];
+      uploadedImagesList[target] = temp;
+      renderPhotosPreview();
+    }
+
+    function removeImage(idx) {
+      uploadedImagesList.splice(idx, 1);
+      if (uploadedImagesList.length > 0 && !uploadedImagesList.some(i => i.is_cover)) {
+        uploadedImagesList[0].is_cover = true;
+      }
+      renderPhotosPreview();
+    }
+
+    // --- VIDEO UPLOAD & PREVIEW LOGIC ---
+    async function handleVideoSelection(files) {
+      if (!files || files.length === 0) return;
+
+      const formData = new FormData();
+      formData.append('video', files[0]);
+
+      const indicator = document.getElementById('uploading-video-indicator');
+      indicator.style.display = 'block';
+
+      try {
+        const res = await fetch('/api/upload/video', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${currentAdminToken}` },
+          body: formData
+        });
+        const data = await res.json();
+        if (res.ok && data.video) {
+          uploadedVideoData = data.video;
+          const player = document.getElementById('video-preview-player');
+          player.src = data.video.url;
+          document.getElementById('video-preview-container').style.display = 'block';
+          ISHEMA.showToast('Video uploaded successfully to server.');
+        } else {
+          alert(data.error || 'Video upload failed');
+        }
+      } catch (err) {
+        alert('Video upload error');
+      } finally {
+        indicator.style.display = 'none';
+        document.getElementById('file-input-video').value = '';
+      }
+    }
+
+    function removeVideo() {
+      uploadedVideoData = null;
+      const player = document.getElementById('video-preview-player');
+      player.pause();
+      player.removeAttribute('src');
+      player.load();
+      document.getElementById('video-preview-container').style.display = 'none';
+    }
+
+    // --- REAL PROPERTY PUBLISHING HANDLER ---
+    async function handlePublishProperty(e) {
+      e.preventDefault();
+
+      if (uploadedImagesList.length === 0) {
+        if (!confirm('You have not uploaded any photos for this property. Do you wish to proceed with a default image placeholder?')) {
+          return;
+        }
+      }
+
+      const editingId = document.getElementById('editing-property-id').value;
+      const isEditing = Boolean(editingId);
+
+      const propertyData = {
+        title: document.getElementById('form-title').value,
+        type: document.getElementById('form-type').value,
+        status: document.getElementById('form-status').value,
+        price: Number(document.getElementById('form-price').value),
+        currency: document.getElementById('form-currency').value,
+        province: document.getElementById('form-province').value,
+        district: document.getElementById('form-district').value,
+        sector: document.getElementById('form-sector').value,
+        cell: document.getElementById('form-cell').value,
+        village: document.getElementById('form-village').value,
+        address: document.getElementById('form-address').value,
+        bedrooms: Number(document.getElementById('form-bedrooms').value || 0),
+        bathrooms: Number(document.getElementById('form-bathrooms').value || 0),
+        parking: Number(document.getElementById('form-parking').value || 0),
+        year_built: Number(document.getElementById('form-year').value || 2024),
+        size: Number(document.getElementById('form-size').value || 0),
+        land_size: Number(document.getElementById('form-land-size').value || 0),
+        furnished: document.getElementById('form-furnished').value,
+        amenities: document.getElementById('form-amenities').value.split(',').map(s => s.trim()).filter(Boolean),
+        description: document.getElementById('form-desc').value,
+        phone: document.getElementById('form-phone').value,
+        whatsapp: document.getElementById('form-whatsapp').value,
+        email: document.getElementById('form-email').value,
+        published: document.getElementById('form-publish-now').checked,
+        images: uploadedImagesList,
+        video: uploadedVideoData
+      };
+
+      const btn = document.getElementById('btn-submit-property');
+      btn.disabled = true;
+      btn.textContent = 'Saving to Database...';
+
+      try {
+        const endpoint = isEditing ? `/api/properties/${editingId}` : '/api/properties';
+        const method = isEditing ? 'PUT' : 'POST';
+
+        const res = await fetch(endpoint, {
+          method,
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${currentAdminToken}`
+          },
+          body: JSON.stringify(propertyData)
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          ISHEMA.showToast(data.message || 'Property saved to database successfully!');
+          resetPropertyForm();
+          switchAdminTab('props');
+        } else {
+          alert(data.error || 'Failed to save property');
+        }
+      } catch (err) {
+        alert('Server communication error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = isEditing ? 'SAVE PROPERTY CHANGES' : 'PUBLISH PROPERTY';
+      }
+    }
+
+    // Load Inquiries
+    async function loadAdminInquiries() {
+      const container = document.getElementById('inquiries-container');
+      try {
+        const res = await fetch('/api/admin/inquiries', {
+          headers: { 'Authorization': `Bearer ${currentAdminToken}` }
+        });
+        const data = await res.json();
+        if (res.ok && data.inquiries) {
+          if (data.inquiries.length === 0) {
+            container.innerHTML = '<div style="background: #fff; padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border);">No client inquiries submitted yet.</div>';
+            return;
+          }
+          container.innerHTML = data.inquiries.map(inq => `
+            <div style="background: #fff; padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border); margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                <div>
+                  <strong style="color: var(--primary); font-size: 1.05rem;">${inq.name}</strong>
+                  <div style="font-size: 0.85rem; color: var(--text-muted);">${inq.email} | ${inq.phone}</div>
+                </div>
+                <span class="badge-tag badge-rent">${inq.status.toUpperCase()}</span>
+              </div>
+              <p style="font-size: 0.92rem; margin: 10px 0;">${inq.message || 'No additional message provided.'}</p>
+              ${inq.preferred_date ? `<div style="font-size: 0.82rem; color: var(--primary);">📅 Preferred Viewing Date: <strong>${inq.preferred_date}</strong></div>` : ''}
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;">Received: ${new Date(inq.created_at).toLocaleString()}</div>
+            </div>
+          `).join('');
+        }
+      } catch (e) {}
+    }
+
+    // Load Stats
+    async function loadAdminStats() {
+      const container = document.getElementById('stats-cards-grid');
+      try {
+        const res = await fetch('/api/admin/stats', {
+          headers: { 'Authorization': `Bearer ${currentAdminToken}` }
+        });
+        const data = await res.json();
+        if (res.ok) {
+          container.innerHTML = `
+            <div style="background: #fff; padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border);">
+              <div style="font-size: 2rem; font-weight: 800; color: var(--primary);">${data.total_properties}</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted);">Total Properties in DB</div>
+            </div>
+            <div style="background: #fff; padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border);">
+              <div style="font-size: 2rem; font-weight: 800; color: var(--success);">${data.published_properties}</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted);">Live Published Listings</div>
+            </div>
+            <div style="background: #fff; padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border);">
+              <div style="font-size: 2rem; font-weight: 800; color: var(--accent);">${data.total_users}</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted);">Registered Accounts</div>
+            </div>
+            <div style="background: #fff; padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border);">
+              <div style="font-size: 2rem; font-weight: 800; color: var(--info);">${data.total_inquiries}</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted);">Client Inquiries Received</div>
+            </div>
+          `;
+        }
+      } catch (e) {}
+    }
+
+    function handleTypeChange(val) {
+      const group = document.getElementById('building-specs-group');
+      if (val === 'Land') {
+        group.style.display = 'none';
+      } else {
+        group.style.display = 'grid';
+      }
+    }
+
+    function handleProvinceChange(val) {
+      const district = document.getElementById('form-district');
+      if (val === 'Kigali City' && !['Gasabo', 'Kicukiro', 'Nyarugenge'].includes(district.value)) {
+        district.value = 'Gasabo';
+      } else if (val === 'Northern Province' && district.value === 'Gasabo') {
+        district.value = 'Musanze';
+      } else if (val === 'Western Province' && district.value === 'Gasabo') {
+        district.value = 'Rubavu';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', checkAdminAuth);
+  </script>
+</body>
+</html>

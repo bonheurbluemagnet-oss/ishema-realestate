@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account | ISHEMA REAL ESTATE</title>
+  <meta name="description" content="Manage your ISHEMA Real Estate user profile, saved properties, and inquiries.">
+  <link rel="icon" type="image/svg+xml" href="images/logo-icon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <div class="header-contact-links">
+        <span>📍 Kigali Heights, KG 7 Ave, Kigali, Rwanda</span>
+        <a href="tel:+250780837936">📞 Call: 0780837936</a>
+        <a href="https://wa.me/250780837936" target="_blank" style="color: #25d366; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          WhatsApp: 0780837936
+        </a>
+        <a href="mailto:info@ishemarealestate.rw">✉️ info@ishemarealestate.rw</a>
+      </div>
+      <div class="top-bar-right">
+        <span>Currency:</span>
+        <div class="currency-toggle">
+          <button class="currency-btn active" data-currency="RWF">RWF</button>
+          <button class="currency-btn" data-currency="USD">USD</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <img src="images/logo-icon.svg" alt="ISHEMA Real Estate Logo" class="logo-brand-img">
+        <div class="logo-text">
+          <span class="logo-title">ISHEMA <span>REAL ESTATE</span></span>
+          <span class="logo-tagline">Find Your Home • Find Your Land</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="properties.html?status=sale" class="nav-link">Buy</a></li>
+          <li><a href="properties.html?status=rent" class="nav-link">Rent</a></li>
+          <li><a href="properties.html?type=Land" class="nav-link">Land</a></li>
+          <li><a href="properties.html" class="nav-link">Properties</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <span id="nav-user-badge" style="font-weight: 600; font-size: 0.9rem; color: var(--primary);"></span>
+        <button class="btn btn-outline btn-sm" id="btn-account-logout" onclick="handleUserLogout()" style="display: none;">Logout</button>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login/Register View (When not authenticated) -->
+  <main class="section-padding" id="auth-section">
+    <div class="container" style="max-width: 520px;">
+      <div style="background: #fff; padding: 36px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-md);">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <img src="images/logo.svg" alt="ISHEMA Real Estate Logo" style="max-height: 85px; margin: 0 auto 16px auto; display: block;">
+          <h1 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 8px;" id="auth-heading">Sign In to Your Account</h1>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Access saved properties, manage your profile, and track viewing requests.</p>
+        </div>
+
+        <div style="display: flex; gap: 8px; margin-bottom: 24px;">
+          <button class="btn btn-primary" id="tab-login-btn" onclick="setAuthTab('login')" style="flex: 1;">Login</button>
+          <button class="btn btn-outline" id="tab-register-btn" onclick="setAuthTab('register')" style="flex: 1;">Register</button>
+        </div>
+
+        <!-- Form -->
+        <form id="account-auth-form" onsubmit="handleAuthSubmit(event)">
+          <div class="form-group" id="reg-name-group" style="display: none;">
+            <label for="acc-name">Full Name *</label>
+            <input type="text" id="acc-name" class="form-control" placeholder="e.g. Eric Nshimiyimana">
+          </div>
+
+          <div class="form-group" id="reg-phone-group" style="display: none;">
+            <label for="acc-phone">Phone / WhatsApp Number</label>
+            <input type="tel" id="acc-phone" class="form-control" placeholder="+250 788 000 000">
+          </div>
+
+          <div class="form-group">
+            <label for="acc-email">Email Address *</label>
+            <input type="email" id="acc-email" class="form-control" required placeholder="name@domain.rw">
+          </div>
+
+          <div class="form-group">
+            <label for="acc-pass">Password *</label>
+            <input type="password" id="acc-pass" class="form-control" required placeholder="••••••••">
+          </div>
+
+          <button type="submit" class="btn btn-accent" id="acc-submit-btn" style="width: 100%; margin-top: 12px; padding: 12px;">
+            Sign In
+          </button>
+        </form>
+
+        <div style="margin-top: 24px; padding: 14px; background: var(--bg-subtle); border-radius: var(--radius-md); font-size: 0.82rem; color: var(--text-muted);">
+          <strong>Demo Real Accounts in Database:</strong><br>
+          • User: <code>user@ishema.rw</code> / <code>User@123456</code><br>
+          • Admin: <code>admin@ishema.rw</code> / <code>Admin@123456</code> (<a href="admin.html" style="color: var(--accent); font-weight: 600;">Go to Admin Portal</a>)
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- User Dashboard View (When authenticated) -->
+  <main class="section-padding" id="dashboard-section" style="display: none;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 280px 1fr; gap: 32px;">
+        
+        <!-- Profile Sidebar -->
+        <aside style="background: #fff; padding: 28px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); text-align: center; height: fit-content;">
+          <div style="position: relative; width: 100px; height: 100px; margin: 0 auto 16px auto;">
+            <img id="user-profile-img" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold);">
+            <label for="avatar-input" style="position: absolute; bottom: 0; right: 0; background: var(--primary); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.8rem;" title="Upload new photo">
+              📷
+            </label>
+            <input type="file" id="avatar-input" accept="image/*" style="display: none;" onchange="uploadAvatar(this.files[0])">
+          </div>
+
+          <h3 id="profile-display-name" style="color: var(--primary); font-size: 1.2rem; margin-bottom: 4px;">User Name</h3>
+          <p id="profile-display-email" style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">user@example.com</p>
+          <span class="badge-tag badge-verified" id="profile-role-badge">Verified Member</span>
+
+          <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px;">
+            <button class="btn btn-outline btn-sm" onclick="showDashboardTab('profile')" style="width: 100%;">👤 Profile Settings</button>
+            <button class="btn btn-outline btn-sm" onclick="showDashboardTab('favorites')" style="width: 100%;">❤️ Saved Favorites</button>
+            <a href="properties.html" class="btn btn-primary btn-sm" style="width: 100%;">🔍 Browse Properties</a>
+          </div>
+        </aside>
+
+        <!-- Main Dashboard Content -->
+        <div>
+          <!-- TAB: PROFILE SETTINGS -->
+          <div id="subtab-profile" style="background: #fff; padding: 32px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); margin-bottom: 28px;">
+            <h2 style="font-size: 1.4rem; color: var(--primary); margin-bottom: 16px;">Personal Information</h2>
+            <form onsubmit="handleUpdateProfile(event)">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="edit-name">Full Name</label>
+                  <input type="text" id="edit-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="edit-phone">Phone Number</label>
+                  <input type="tel" id="edit-phone" class="form-control">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-accent btn-sm">Save Profile Changes</button>
+            </form>
+
+            <h3 style="font-size: 1.2rem; color: var(--primary); margin: 32px 0 16px 0; border-top: 1px solid var(--border); padding-top: 24px;">
+              Security & Password
+            </h3>
+            <form onsubmit="handleChangePassword(event)">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="pwd-current">Current Password</label>
+                  <input type="password" id="pwd-current" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="pwd-new">New Password</label>
+                  <input type="password" id="pwd-new" class="form-control" required minlength="6">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm">Update Password</button>
+            </form>
+          </div>
+
+          <!-- TAB: FAVORITES -->
+          <div id="subtab-favorites" style="background: #fff; padding: 32px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+            <h2 style="font-size: 1.4rem; color: var(--primary); margin-bottom: 8px;">My Saved Properties</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Homes and land plots saved to your account in the database.</p>
+            <div class="properties-grid" id="user-favorites-grid">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo" style="margin-bottom: 16px;">
+            <img src="images/logo-icon.svg" alt="ISHEMA Real Estate Logo" class="logo-brand-img">
+            <div class="logo-text">
+              <span class="logo-title" style="color: #ffffff;">ISHEMA <span>REAL ESTATE</span></span>
+              <span class="logo-tagline" style="color: #cbd5e1;">Find Your Home • Find Your Land</span>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+            Rwanda's leading digital real estate marketplace.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="properties.html?status=sale">Buy</a></li>
+            <li><a href="properties.html?status=rent">Rent</a></li>
+            <li><a href="properties.html?type=Land">Land</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul class="footer-links">
+            <li><a href="account.html">My Profile</a></li>
+            <li><a href="account.html">Saved Properties</a></li>
+            <li><a href="admin.html">Admin Portal</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Office</h4>
+          <p style="font-size: 0.88rem; margin-bottom: 8px;">Kigali Heights, 4th Floor</p>
+          <p style="font-size: 0.88rem; margin-bottom: 8px;">KG 7 Ave, Kigali, Rwanda</p>
+          <p style="font-size: 0.88rem; margin-bottom: 8px;"><a href="tel:+250780837936" style="color: inherit;">Tel: 0780837936</a></p>
+          <p style="font-size: 0.88rem;">
+            <a href="https://wa.me/250780837936" target="_blank" class="btn btn-whatsapp btn-sm" style="display: inline-flex;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              Chat: 0780837936
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 ISHEMA REAL ESTATE. All rights reserved. Registered in the Republic of Rwanda.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    let authMode = 'login';
+    let currentUser = null;
+    let userToken = localStorage.getItem('ishema_token');
+
+    async function checkUserSession() {
+      if (!userToken) {
+        document.getElementById('auth-section').style.display = 'block';
+        document.getElementById('dashboard-section').style.display = 'none';
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/auth/me', {
+          headers: { 'Authorization': `Bearer ${userToken}` }
+        });
+        if (res.ok) {
+          const data = await res.json();
+          currentUser = data.user;
+          document.getElementById('auth-section').style.display = 'none';
+          document.getElementById('dashboard-section').style.display = 'block';
+          document.getElementById('nav-user-badge').textContent = `Hello, ${currentUser.name.split(' ')[0]}`;
+          document.getElementById('btn-account-logout').style.display = 'inline-flex';
+
+          document.getElementById('profile-display-name').textContent = currentUser.name;
+          document.getElementById('profile-display-email').textContent = currentUser.email;
+          document.getElementById('edit-name').value = currentUser.name;
+          document.getElementById('edit-phone').value = currentUser.phone || '';
+          if (currentUser.photo_url) {
+            document.getElementById('user-profile-img').src = currentUser.photo_url;
+          }
+          loadUserFavorites();
+        } else {
+          localStorage.removeItem('ishema_token');
+          userToken = null;
+          document.getElementById('auth-section').style.display = 'block';
+          document.getElementById('dashboard-section').style.display = 'none';
+        }
+      } catch (e) {
+        document.getElementById('auth-section').style.display = 'block';
+        document.getElementById('dashboard-section').style.display = 'none';
+      }
+    }
+
+    function setAuthTab(tab) {
+      authMode = tab;
+      const regName = document.getElementById('reg-name-group');
+      const regPhone = document.getElementById('reg-phone-group');
+      const heading = document.getElementById('auth-heading');
+      const submit = document.getElementById('acc-submit-btn');
+      const btnLog = document.getElementById('tab-login-btn');
+      const btnReg = document.getElementById('tab-register-btn');
+
+      if (tab === 'register') {
+        regName.style.display = 'block';
+        regPhone.style.display = 'block';
+        heading.textContent = 'Create a New Account';
+        submit.textContent = 'Register Account';
+        btnReg.className = 'btn btn-primary';
+        btnLog.className = 'btn btn-outline';
+      } else {
+        regName.style.display = 'none';
+        regPhone.style.display = 'none';
+        heading.textContent = 'Sign In to Your Account';
+        submit.textContent = 'Sign In';
+        btnLog.className = 'btn btn-primary';
+        btnReg.className = 'btn btn-outline';
+      }
+    }
+
+    async function handleAuthSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('acc-email').value;
+      const password = document.getElementById('acc-pass').value;
+      const name = document.getElementById('acc-name').value;
+      const phone = document.getElementById('acc-phone').value;
+
+      const endpoint = authMode === 'register' ? '/api/auth/register' : '/api/auth/login';
+      const payload = authMode === 'register' ? { name, email, password, phone } : { email, password };
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (res.ok && data.token) {
+          localStorage.setItem('ishema_token', data.token);
+          userToken = data.token;
+          currentUser = data.user;
+          ISHEMA.showToast(`Welcome, ${currentUser.name}!`);
+          checkUserSession();
+        } else {
+          alert(data.error || 'Authentication failed');
+        }
+      } catch (err) {
+        alert('Server network error');
+      }
+    }
+
+    function handleUserLogout() {
+      if (userToken) {
+        fetch('/api/auth/logout', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${userToken}` }
+        });
+      }
+      localStorage.removeItem('ishema_token');
+      userToken = null;
+      currentUser = null;
+      document.getElementById('nav-user-badge').textContent = '';
+      document.getElementById('btn-account-logout').style.display = 'none';
+      checkUserSession();
+    }
+
+    async function handleUpdateProfile(e) {
+      e.preventDefault();
+      const name = document.getElementById('edit-name').value;
+      const phone = document.getElementById('edit-phone').value;
+
+      try {
+        const res = await fetch('/api/auth/profile', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${userToken}`
+          },
+          body: JSON.stringify({ name, phone })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          ISHEMA.showToast('Profile updated successfully in database.');
+          checkUserSession();
+        }
+      } catch (e) {
+        alert('Update failed');
+      }
+    }
+
+    async function handleChangePassword(e) {
+      e.preventDefault();
+      const current_password = document.getElementById('pwd-current').value;
+      const new_password = document.getElementById('pwd-new').value;
+
+      try {
+        const res = await fetch('/api/auth/password', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${userToken}`
+          },
+          body: JSON.stringify({ current_password, new_password })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          ISHEMA.showToast('Password changed successfully.');
+          document.getElementById('pwd-current').value = '';
+          document.getElementById('pwd-new').value = '';
+        } else {
+          alert(data.error || 'Password update failed');
+        }
+      } catch (e) {
+        alert('Password update error');
+      }
+    }
+
+    async function uploadAvatar(file) {
+      if (!file) return;
+      const formData = new FormData();
+      formData.append('photo', file);
+
+      try {
+        const res = await fetch('/api/auth/upload-photo', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${userToken}` },
+          body: formData
+        });
+        const data = await res.json();
+        if (res.ok && data.photo_url) {
+          document.getElementById('user-profile-img').src = data.photo_url;
+          ISHEMA.showToast('Profile photo updated and saved to server.');
+        }
+      } catch (e) {
+        alert('Failed to upload photo');
+      }
+    }
+
+    async function loadUserFavorites() {
+      const container = document.getElementById('user-favorites-grid');
+      try {
+        const res = await fetch('/api/favorites', {
+          headers: { 'Authorization': `Bearer ${userToken}` }
+        });
+        const data = await res.json();
+        if (res.ok && data.favorites && data.favorites.length > 0) {
+          container.innerHTML = data.favorites.map(p => ISHEMA.renderCard(p)).join('');
+        } else {
+          container.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 40px; background: var(--bg-subtle); border-radius: var(--radius-md);">
+              <p style="color: var(--text-muted);">You have not saved any properties yet.</p>
+              <a href="properties.html" class="btn btn-outline btn-sm" style="margin-top: 10px;">Explore Rwanda Properties</a>
+            </div>
+          `;
+        }
+      } catch (e) {
+        container.innerHTML = '<p>Could not load favorites.</p>';
+      }
+    }
+
+    function showDashboardTab(tab) {
+      document.getElementById('subtab-profile').style.display = tab === 'profile' ? 'block' : 'none';
+      document.getElementById('subtab-favorites').style.display = tab === 'favorites' ? 'block' : 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', checkUserSession);
+  </script>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/250780837936?text=Hello%20ISHEMA%20Real%20Estate,%20I%20have%20an%20inquiry%20regarding%20my%20account%20or%20properties." target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <div class="floating-whatsapp-tooltip">Chat with us: <span>0780837936</span></div>
+    <div class="floating-whatsapp-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </div>
+  </a>
+</body>
+</html>

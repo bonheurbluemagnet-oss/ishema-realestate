@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Properties & Land in Rwanda | ISHEMA REAL ESTATE</title>
+  <meta name="description" content="Search verified houses, apartments, and land for sale and rent across Kigali, Gasabo, Kicukiro, Musanze, Rubavu, and Rwanda.">
+  <link rel="icon" type="image/svg+xml" href="images/logo-icon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('ishema_theme');
+        var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (systemDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <div class="header-contact-links">
+        <span>📍 Kigali Heights, KG 7 Ave, Kigali, Rwanda</span>
+        <a href="tel:+250780837936">📞 Call: 0780837936</a>
+        <a href="https://wa.me/250780837936" target="_blank" style="color: #25d366; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          WhatsApp: 0780837936
+        </a>
+        <a href="mailto:info@ishemarealestate.rw">✉️ info@ishemarealestate.rw</a>
+      </div>
+      <div class="top-bar-right">
+        <span>Currency:</span>
+        <div class="currency-toggle">
+          <button class="currency-btn active" data-currency="RWF">RWF</button>
+          <button class="currency-btn" data-currency="USD">USD</button>
+        </div>
+        <button class="theme-quick-btn" onclick="ISHEMA.toggleTheme()" title="Switch dark/light theme" aria-label="Toggle theme">
+          <span class="theme-quick-icon">🌙</span>
+          <span class="theme-quick-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="main-header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <img src="images/logo-icon.svg" alt="ISHEMA Real Estate Logo" class="logo-brand-img">
+        <div class="logo-text">
+          <span class="logo-title">ISHEMA <span>REAL ESTATE</span></span>
+          <span class="logo-tagline">Find Your Home • Find Your Land</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="properties.html?status=sale" class="nav-link" id="nav-buy">Buy</a></li>
+          <li><a href="properties.html?status=rent" class="nav-link" id="nav-rent">Rent</a></li>
+          <li><a href="properties.html?type=Land" class="nav-link" id="nav-land">Land</a></li>
+          <li><a href="properties.html" class="nav-link active">Properties</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="fav-header-btn" onclick="filterByFavorites()" title="View Saved Properties">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span class="fav-badge-count">0</span>
+        </button>
+        <!-- Dark / Light Theme Toggle -->
+        <button class="theme-toggle-btn" onclick="ISHEMA.toggleTheme()" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <span class="theme-icon-light" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-icon-dark" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span class="theme-toggle-label">Theme</span>
+        </button>
+        <div id="header-auth-actions" style="display: flex; gap: 8px; align-items: center;">
+          <a href="account.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="admin.html" class="btn btn-accent btn-sm">Admin Portal</a>
+        </div>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div style="background: var(--primary); color: #fff; padding: 36px 0;">
+    <div class="container">
+      <h1 style="color: #fff; font-size: 2rem; margin-bottom: 6px;" id="page-heading">Browse Rwanda Real Estate</h1>
+      <p style="color: #cbd5e1; font-size: 0.95rem;">Filter by purpose, Rwanda district, verified land titles, and price ranges.</p>
+    </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <main class="section-padding">
+    <div class="container">
+      
+      <!-- Filter Bar Card -->
+      <div class="filter-bar-card">
+        <!-- Row 1: Core Search & Selectors -->
+        <div class="filter-grid-row">
+          <div class="form-group-custom">
+            <label for="filter-keyword">Keyword Search</label>
+            <input type="text" id="filter-keyword" placeholder="Search title, neighborhood..." oninput="applyFilters()">
+          </div>
+
+          <div class="form-group-custom">
+            <label for="filter-status">Purpose</label>
+            <select id="filter-status" onchange="applyFilters()">
+              <option value="">All (Buy & Rent)</option>
+              <option value="sale">For Sale (Buy)</option>
+              <option value="rent">For Rent</option>
+            </select>
+          </div>
+
+          <div class="form-group-custom">
+            <label for="filter-type">Property Type</label>
+            <select id="filter-type" onchange="applyFilters()">
+              <option value="">All Property Types</option>
+              <option value="House">House</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Land">Land</option>
+              <option value="Commercial">Commercial Property</option>
+              <option value="Office">Office</option>
+              <option value="Shop">Shop</option>
+              <option value="Villa">Villa</option>
+            </select>
+          </div>
+
+          <div class="form-group-custom">
+            <label for="filter-location">Location / District</label>
+            <select id="filter-location" onchange="applyFilters()">
+              <option value="">All Locations</option>
+              <option value="Kigali">All Kigali</option>
+              <option value="Gasabo">Kigali - Gasabo</option>
+              <option value="Kicukiro">Kigali - Kicukiro</option>
+              <option value="Nyarugenge">Kigali - Nyarugenge</option>
+              <option value="Musanze">Musanze</option>
+              <option value="Rubavu">Rubavu</option>
+              <option value="Huye">Huye</option>
+              <option value="Rwamagana">Rwamagana</option>
+              <option value="Bugesera">Bugesera</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Row 2: Price & Sizing -->
+        <div class="filter-grid-row">
+          <div class="form-group-custom">
+            <label for="filter-min-price">Min Price (RWF)</label>
+            <input type="number" id="filter-min-price" placeholder="Min Price" oninput="applyFilters()">
+          </div>
+
+          <div class="form-group-custom">
+            <label for="filter-max-price">Max Price (RWF)</label>
+            <input type="number" id="filter-max-price" placeholder="Max Price" oninput="applyFilters()">
+          </div>
+
+          <div class="form-group-custom">
+            <label for="filter-bedrooms">Bedrooms</label>
+            <select id="filter-bedrooms" onchange="applyFilters()">
+              <option value="">Any Bedrooms</option>
+              <option value="1">1+ Bedroom</option>
+              <option value="2">2+ Bedrooms</option>
+              <option value="3">3+ Bedrooms</option>
+              <option value="4">4+ Bedrooms</option>
+              <option value="5">5+ Bedrooms</option>
+            </select>
+          </div>
+
+          <div class="form-group-custom">
+            <label for="filter-furnished">Furnishing</label>
+            <select id="filter-furnished" onchange="applyFilters()">
+              <option value="">Any Furnishing</option>
+              <option value="Furnished">Furnished</option>
+              <option value="Semi-Furnished">Semi-Furnished</option>
+              <option value="Unfurnished">Unfurnished</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Row 3: Checkboxes & Reset -->
+        <div class="filter-extra-row">
+          <label class="checkbox-group">
+            <input type="checkbox" id="filter-verified" onchange="applyFilters()">
+            <span>Verified Properties Only (UPI / Checked)</span>
+          </label>
+
+          <label class="checkbox-group">
+            <input type="checkbox" id="filter-fav-only" onchange="applyFilters()">
+            <span>Show My Saved Favorites Only</span>
+          </label>
+
+          <div></div>
+
+          <div style="text-align: right;">
+            <button class="btn btn-outline btn-sm" onclick="resetFilters()">Reset All Filters</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- View and Sort Toolbar -->
+      <div class="view-toggle-bar">
+        <div>
+          <span style="font-weight: 700; color: var(--primary);" id="results-count">0</span>
+          <span style="color: var(--text-muted); font-size: 0.95rem;"> properties found</span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <!-- Sorting -->
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <label for="sort-select" style="font-size: 0.88rem; font-weight: 600; color: var(--text-muted);">Sort by:</label>
+            <select id="sort-select" onchange="applyFilters()" style="padding: 6px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.88rem; background: #fff;">
+              <option value="newest">Newest First</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="views-desc">Most Viewed</option>
+            </select>
+          </div>
+
+          <!-- Grid / List Toggle -->
+          <div class="view-toggle-btns">
+            <button class="view-btn active" id="btn-grid-view" onclick="setViewMode('grid')" title="Grid View">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Grid
+            </button>
+            <button class="view-btn" id="btn-list-view" onclick="setViewMode('list')" title="List View">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              List
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Properties Container -->
+      <div id="properties-container" class="properties-grid">
+        <!-- Rendered by JavaScript -->
+      </div>
+
+      <!-- Admin Management Panel (Hidden by default, toggleable via Admin Mode button) -->
+      <div id="admin-panel" style="display: none; margin-top: 50px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow-md);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3 style="color: var(--primary);">⚙️ Ishema Admin Management Dashboard</h3>
+          <span class="badge-tag badge-sale">Admin Role</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px;">
+          <div style="background: var(--bg-subtle); padding: 14px; border-radius: var(--radius-md); text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);" id="admin-stat-total">35</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Total Properties</div>
+          </div>
+          <div style="background: var(--bg-subtle); padding: 14px; border-radius: var(--radius-md); text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">20</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">For Sale</div>
+          </div>
+          <div style="background: var(--bg-subtle); padding: 14px; border-radius: var(--radius-md); text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">15</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">For Rent</div>
+          </div>
+          <div style="background: var(--bg-subtle); padding: 14px; border-radius: var(--radius-md); text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent);" id="admin-stat-pending">1</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Pending Approvals</div>
+          </div>
+        </div>
+
+        <h4 style="margin-bottom: 12px;">Manage Pending Listings & Verifications:</h4>
+        <div id="admin-listings-table" style="font-size: 0.88rem;">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo" style="margin-bottom: 16px;">
+            <img src="images/logo-icon.svg" alt="ISHEMA Real Estate Logo" class="logo-brand-img">
+            <div class="logo-text">
+              <span class="logo-title" style="color: #ffffff;">ISHEMA <span>REAL ESTATE</span></span>
+              <span class="logo-tagline" style="color: #cbd5e1;">Find Your Home • Find Your Land</span>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+            Rwanda's leading digital real estate marketplace.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="properties.html?status=sale">Buy</a></li>
+            <li><a href="properties.html?status=rent">Rent</a></li>
+            <li><a href="properties.html?type=Land">Land</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Districts</h4>
+          <ul class="footer-links">
+            <li><a href="properties.html?location=Gasabo">Gasabo</a></li>
+            <li><a href="properties.html?location=Kicukiro">Kicukiro</a></li>
+            <li><a href="properties.html?location=Nyarugenge">Nyarugenge</a></li>
+            <li><a href="properties.html?location=Musanze">Musanze</a></li>
+            <li><a href="properties.html?location=Rubavu">Rubavu</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Support & Inquiries</h4>
+          <p style="font-size: 0.88rem; margin-bottom: 8px;"><a href="tel:+250780837936" style="color: inherit;">📞 Call: 0780837936</a></p>
+          <p style="font-size: 0.88rem; margin-bottom: 10px;">
+            <a href="https://wa.me/250780837936" target="_blank" class="btn btn-whatsapp btn-sm" style="display: inline-flex;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              WhatsApp: 0780837936
+            </a>
+          </p>
+          <p style="font-size: 0.88rem; margin-bottom: 8px;">✉️ info@ishemarealestate.rw</p>
+          <p style="font-size: 0.88rem; margin-bottom: 8px;">📍 Kigali Heights, 4th Floor</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 ISHEMA Real Estate Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    let currentViewMode = 'grid';
+
+    function setViewMode(mode) {
+      currentViewMode = mode;
+      const container = document.getElementById('properties-container');
+      const btnGrid = document.getElementById('btn-grid-view');
+      const btnList = document.getElementById('btn-list-view');
+
+      if (mode === 'list') {
+        container.className = 'properties-list';
+        btnList.classList.add('active');
+        btnGrid.classList.remove('active');
+      } else {
+        container.className = 'properties-grid';
+        btnGrid.classList.add('active');
+        btnList.classList.remove('active');
+      }
+    }
+
+    function parseUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('status')) document.getElementById('filter-status').value = params.get('status');
+      if (params.get('type')) document.getElementById('filter-type').value = params.get('type');
+      if (params.get('location')) document.getElementById('filter-location').value = params.get('location');
+      if (params.get('minPrice')) document.getElementById('filter-min-price').value = params.get('minPrice');
+      if (params.get('maxPrice')) document.getElementById('filter-max-price').value = params.get('maxPrice');
+      if (params.get('beds')) document.getElementById('filter-bedrooms').value = params.get('beds');
+      if (params.get('filter') === 'favorites') {
+        document.getElementById('filter-fav-only').checked = true;
+      }
+    }
+
+    async function applyFilters() {
+      const keyword = (document.getElementById('filter-keyword').value || '').toLowerCase().trim();
+      const status = document.getElementById('filter-status').value;
+      const type = document.getElementById('filter-type').value;
+      const location = document.getElementById('filter-location').value;
+      const minPrice = Number(document.getElementById('filter-min-price').value) || 0;
+      const maxPrice = Number(document.getElementById('filter-max-price').value) || Infinity;
+      const bedrooms = Number(document.getElementById('filter-bedrooms').value) || 0;
+      const furnished = document.getElementById('filter-furnished').value;
+      const verifiedOnly = document.getElementById('filter-verified').checked;
+      const favOnly = document.getElementById('filter-fav-only').checked;
+      const sort = document.getElementById('sort-select').value;
+
+      const favs = ISHEMA.getFavorites();
+      let all = await ISHEMA.fetchProperties({
+        status,
+        type,
+        location,
+        minPrice: minPrice > 0 ? minPrice : undefined,
+        maxPrice: maxPrice < Infinity ? maxPrice : undefined,
+        bedrooms: bedrooms > 0 ? bedrooms : undefined,
+        search: keyword || undefined
+      });
+
+      let filtered = all.filter(p => {
+        if (furnished && p.furnished !== furnished) return false;
+        if (verifiedOnly && !p.published) return false;
+        if (favOnly && !favs.includes(p.id)) return false;
+        return true;
+      });
+
+      // Sort
+      if (sort === 'price-asc') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sort === 'price-desc') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sort === 'views-desc') {
+        filtered.sort((a, b) => (b.views || 0) - (a.views || 0));
+      } else {
+        // newest
+        filtered.sort((a, b) => new Date(b.dateListed || 0) - new Date(a.dateListed || 0));
+      }
+
+      // Update Result Count
+      document.getElementById('results-count').textContent = filtered.length;
+
+      // Render
+      const container = document.getElementById('properties-container');
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+            <div style="font-size: 3rem; margin-bottom: 12px;">🏡</div>
+            <h3 style="margin-bottom: 8px;">No Properties Match Your Search</h3>
+            <p style="color: var(--text-muted); max-width: 480px; margin: 0 auto 20px auto;">
+              Try adjusting your price range, location, or reset the filters to see all available homes and land plots in Rwanda.
+            </p>
+            <button class="btn btn-primary btn-sm" onclick="resetFilters()">Reset All Filters</button>
+          </div>
+        `;
+      } else {
+        container.innerHTML = filtered.map(p => ISHEMA.renderCard(p)).join('');
+      }
+    }
+
+    function resetFilters() {
+      document.getElementById('filter-keyword').value = '';
+      document.getElementById('filter-status').value = '';
+      document.getElementById('filter-type').value = '';
+      document.getElementById('filter-location').value = '';
+      document.getElementById('filter-min-price').value = '';
+      document.getElementById('filter-max-price').value = '';
+      document.getElementById('filter-bedrooms').value = '';
+      document.getElementById('filter-furnished').value = '';
+      document.getElementById('filter-verified').checked = false;
+      document.getElementById('filter-fav-only').checked = false;
+      applyFilters();
+    }
+
+    function filterByFavorites() {
+      document.getElementById('filter-fav-only').checked = true;
+      applyFilters();
+    }
+
+    function toggleAdminView() {
+      const panel = document.getElementById('admin-panel');
+      panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+      if (panel.style.display === 'block') {
+        renderAdminListings();
+      }
+    }
+
+    function renderAdminListings() {
+      const userProps = JSON.parse(localStorage.getItem('ishema_user_properties') || '[]');
+      const container = document.getElementById('admin-listings-table');
+      if (userProps.length === 0) {
+        container.innerHTML = `
+          <p style="color: var(--text-muted); padding: 12px; background: var(--bg-subtle); border-radius: var(--radius-sm);">
+            No user-submitted properties pending approval. All core platform listings are active.
+          </p>
+        `;
+      } else {
+        container.innerHTML = `
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--border); background: var(--bg-subtle);">
+                  <th style="padding: 10px;">Title</th>
+                  <th style="padding: 10px;">Type</th>
+                  <th style="padding: 10px;">Price</th>
+                  <th style="padding: 10px;">Status</th>
+                  <th style="padding: 10px;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${userProps.map((p, idx) => `
+                  <tr style="border-bottom: 1px solid var(--border);">
+                    <td style="padding: 10px; font-weight: 600;">${p.title}</td>
+                    <td style="padding: 10px;">${p.type} (${p.status})</td>
+                    <td style="padding: 10px;">${p.price.toLocaleString()} RWF</td>
+                    <td style="padding: 10px;"><span class="badge-tag ${p.verified ? 'badge-verified' : 'badge-rent'}">${p.verified ? 'Approved' : 'Pending'}</span></td>
+                    <td style="padding: 10px;">
+                      <button class="btn btn-sm btn-accent" onclick="adminApproveProperty(${idx})">Approve & Verify</button>
+                      <button class="btn btn-sm btn-outline" onclick="adminDeleteProperty(${idx})" style="color: var(--danger); margin-left: 6px;">Reject</button>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+    }
+
+    function adminApproveProperty(idx) {
+      const userProps = JSON.parse(localStorage.getItem('ishema_user_properties') || '[]');
+      if (userProps[idx]) {
+        userProps[idx].verified = true;
+        localStorage.setItem('ishema_user_properties', JSON.stringify(userProps));
+        ISHEMA.showToast("Property approved and marked Verified!");
+        renderAdminListings();
+        applyFilters();
+      }
+    }
+
+    function adminDeleteProperty(idx) {
+      const userProps = JSON.parse(localStorage.getItem('ishema_user_properties') || '[]');
+      userProps.splice(idx, 1);
+      localStorage.setItem('ishema_user_properties', JSON.stringify(userProps));
+      ISHEMA.showToast("Property rejected and removed.");
+      renderAdminListings();
+      applyFilters();
+    }
+
+    window.refreshListings = applyFilters;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      parseUrlParams();
+      applyFilters();
+    });
+  </script>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/250780837936?text=Hello%20ISHEMA%20Real%20Estate,%20I%20am%20interested%20in%20properties%20listed%20on%20your%20website." target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <div class="floating-whatsapp-tooltip">Chat with us: <span>0780837936</span></div>
+    <div class="floating-whatsapp-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </div>
+  </a>
+</body>
+</html>

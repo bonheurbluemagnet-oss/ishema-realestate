@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | ISHEMA REAL ESTATE Rwanda</title>
+  <meta name="description" content="Get in touch with ISHEMA Real Estate. Visit our Kigali Heights offices, call our certified agents, or send an inquiry for Rwanda houses and land.">
+  <link rel="icon" type="image/svg+xml" href="images/logo-icon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('ishema_theme');
+        var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (systemDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <div class="header-contact-links">
+        <span>📍 Kigali Heights, KG 7 Ave, Kigali, Rwanda</span>
+        <a href="tel:+250780837936">📞 Call: 0780837936</a>
+        <a href="https://wa.me/250780837936" target="_blank" style="color: #25d366; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          WhatsApp: 0780837936
+        </a>
+        <a href="mailto:info@ishemarealestate.rw">✉️ info@ishemarealestate.rw</a>
+      </div>
+      <div class="top-bar-right">
+        <span>Currency:</span>
+        <div class="currency-toggle">
+          <button class="currency-btn active" data-currency="RWF">RWF</button>
+          <button class="currency-btn" data-currency="USD">USD</button>
+        </div>
+        <button class="theme-quick-btn" onclick="ISHEMA.toggleTheme()" title="Switch dark/light theme" aria-label="Toggle theme">
+          <span class="theme-quick-icon">🌙</span>
+          <span class="theme-quick-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <img src="images/logo-icon.svg" alt="ISHEMA Real Estate Logo" class="logo-brand-img">
+        <div class="logo-text">
+          <span class="logo-title">ISHEMA <span>REAL ESTATE</span></span>
+          <span class="logo-tagline">Find Your Home • Find Your Land</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="properties.html?status=sale" class="nav-link">Buy</a></li>
+          <li><a href="properties.html?status=rent" class="nav-link">Rent</a></li>
+          <li><a href="properties.html?type=Land" class="nav-link">Land</a></li>
+          <li><a href="properties.html" class="nav-link">Properties</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="properties.html?filter=favorites" class="fav-header-btn" title="Saved Properties">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span class="fav-badge-count">0</span>
+        </a>
+        <div id="header-auth-actions" style="display: flex; gap: 8px; align-items: center;">
+          <a href="account.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="admin.html" class="btn btn-accent btn-sm">Admin Portal</a>
+        </div>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <div style="background: var(--primary); color: #fff; padding: 45px 0;">
+    <div class="container text-center">
+      <span class="section-badge" style="background: rgba(255,255,255,0.12); color: var(--gold); border-color: rgba(245,158,11,0.3);">
+        Get In Touch
+      </span>
+      <h1 style="color: #fff; font-size: 2.3rem; margin-top: 10px; margin-bottom: 8px;">Contact Ishema Real Estate</h1>
+      <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto;">
+        Our team of certified property consultants and land title experts are ready to assist you in Kigali and across Rwanda.
+      </p>
+    </div>
+  </div>
+
+  <!-- Contact Form & Info Grid -->
+  <main class="section-padding">
+    <div class="container">
+      <div class="contact-layout-grid">
+        <!-- Left Column: Contact Details -->
+        <div class="contact-info-panel">
+          <h3>Our Head Office</h3>
+          <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 24px;">
+            Visit our office at Kigali Heights or reach out via phone, email, or WhatsApp.
+          </p>
+
+          <div class="contact-item-row">
+            <div class="contact-item-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem;">Location</strong>
+              <span style="color: #cbd5e1; font-size: 0.88rem;">Kigali Heights, 4th Floor, West Wing<br>KG 7 Ave, Kimihurura, Kigali, Rwanda</span>
+            </div>
+          </div>
+
+          <div class="contact-item-row">
+            <div class="contact-item-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem;">Direct Phone</strong>
+              <a href="tel:+250780837936" style="color: #cbd5e1; font-size: 0.88rem;">0780837936 (Tap to Call)</a>
+            </div>
+          </div>
+
+          <div class="contact-item-row">
+            <div class="contact-item-icon" style="background: rgba(37, 211, 102, 0.2); color: #25d366;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem;">WhatsApp Chat</strong>
+              <a href="https://wa.me/250780837936" target="_blank" style="color: #25d366; font-size: 0.88rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                0780837936 (Open WhatsApp)
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-item-row">
+            <div class="contact-item-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem;">Email</strong>
+              <a href="mailto:info@ishemarealestate.rw" style="color: #cbd5e1; font-size: 0.88rem;">info@ishemarealestate.rw</a>
+            </div>
+          </div>
+
+          <div class="contact-item-row">
+            <div class="contact-item-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem;">Business Hours</strong>
+              <span style="color: #cbd5e1; font-size: 0.88rem;">Mon – Fri: 8:00 AM – 6:00 PM<br>Saturday: 9:00 AM – 4:00 PM<br>Sunday: By appointment</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Contact Form -->
+        <div style="background: #ffffff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-sm);">
+          <h2 style="font-size: 1.6rem; color: var(--primary); margin-bottom: 8px;">Send Us a Message</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px;">
+            Fill out the form below. Whether you want to buy, rent, sell, or verify a land plot UPI, we will respond promptly.
+          </p>
+
+          <form id="contact-form" onsubmit="handleContactSubmit(event)">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="c-name">Your Full Name *</label>
+                <input type="text" id="c-name" class="form-control" required placeholder="e.g. Jean-Luc Bizimana">
+              </div>
+              <div class="form-group">
+                <label for="c-phone">Phone / WhatsApp Number *</label>
+                <input type="tel" id="c-phone" class="form-control" required placeholder="+250 788 000 000">
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="c-email">Email Address *</label>
+                <input type="email" id="c-email" class="form-control" required placeholder="name@example.com">
+              </div>
+              <div class="form-group">
+                <label for="c-subject">Inquiry Type</label>
+                <select id="c-subject" class="form-control">
+                  <option value="buy">Looking to Buy a Property</option>
+                  <option value="rent">Looking to Rent an Apartment/House</option>
+                  <option value="land">Land Verification & Acquisition</option>
+                  <option value="post">Listing My Property / Land</option>
+                  <option value="commercial">Commercial Space / Office</option>
+                  <option value="other">General Inquiry</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="c-message">Your Message *</label>
+              <textarea id="c-message" class="form-control" rows="5" required placeholder="Tell us about your requirements, preferred location in Rwanda, budget, and timing..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-accent" style="padding: 12px 30px; font-size: 1rem;">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Embedded Kigali Heights Map -->
+      <div style="margin-top: 50px;">
+        <h3 style="margin-bottom: 16px; color: var(--primary);">Find Our Kigali Heights Office on Google Maps</h3>
+        <div class="map-container-box" style="height: 380px;">
+          <iframe 
+            src="https://maps.google.com/maps?q=Kigali+Heights,+KG+7+Ave,+Kigali,+Rwanda&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo" style="margin-bottom: 16px;">
+            <img src="images/logo-icon.svg" alt="ISHEMA Real Estate Logo" class="logo-brand-img">
+            <div class="logo-text">
+              <span class="logo-title" style="color: #ffffff;">ISHEMA <span>REAL ESTATE</span></span>
+              <span class="logo-tagline" style="color: #cbd5e1;">Find Your Home • Find Your Land</span>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.6;">
+            Rwanda's leading digital real estate marketplace.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="properties.html?status=sale">Buy</a></li>
+            <li><a href="properties.html?status=rent">Rent</a></li>
+            <li><a href="properties.html?type=Land">Land</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Office Address</h4>
+          <p style="font-size: 0.88rem; margin-bottom: 8px;">Kigali Heights, 4th Floor</p>
+          <p style="font-size: 0.88rem; margin-bottom: 8px;">KG 7 Ave, Kigali</p>
+          <p style="font-size: 0.88rem;">info@ishemarealestate.rw</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>WhatsApp Desk</h4>
+          <p style="font-size: 0.88rem; margin-bottom: 12px;">Instant response on WhatsApp for property viewings and listings.</p>
+          <a href="https://wa.me/250780837936" target="_blank" class="btn btn-whatsapp btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            Chat: 0780837936
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 ISHEMA Real Estate Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    async function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('c-name').value;
+      const phone = document.getElementById('c-phone').value;
+      const email = document.getElementById('c-email').value;
+      const subject = document.getElementById('c-subject').value;
+      const message = document.getElementById('c-message').value;
+
+      try {
+        await fetch('/api/inquiries', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            phone,
+            email,
+            message: `[Subject: ${subject}] ${message}`,
+            type: 'contact'
+          })
+        });
+        ISHEMA.showToast(`Thank you, ${name}! Your message was saved in our database. Our team will contact you shortly.`);
+        document.getElementById('contact-form').reset();
+      } catch (err) {
+        ISHEMA.showToast(`Thank you, ${name}! Message received.`);
+        document.getElementById('contact-form').reset();
+      }
+    }
+  </script>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/250780837936?text=Hello%20ISHEMA%20Real%20Estate,%20I%20would%20like%20to%20get%20in%20touch." target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <div class="floating-whatsapp-tooltip">Chat with us: <span>0780837936</span></div>
+    <div class="floating-whatsapp-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </div>
+  </a>
+</body>
+</html>

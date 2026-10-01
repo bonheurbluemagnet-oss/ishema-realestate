@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISHEMA REAL ESTATE | Rwanda Houses, Apartments & Land</title>
+    <meta name="description" content="Discover houses, apartments, and land for sale and rent across Kigali, Gasabo, Kicukiro, Musanze, Rubavu, and Rwanda. Find Your Home. Find Your Land. Build Your Future.">
+    <link rel="icon" type="image/svg+xml" href="images/logo-icon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('ishema_theme');
+          var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = saved || (systemDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch(e) {}
+      })();
+    </script>
+  </head>
+<body>
+
+  <!-- Top Announcement / Contact Bar -->
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <div class="header-contact-links">
+        <span>📍 Kigali Heights, KG 7 Ave, Kigali, Rwanda</span>
+        <a href="tel:+250780837936">📞 Call: 0780837936</a>
+        <a href="https://wa.me/250780837936" target="_blank" style="color: #25d366; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          WhatsApp: 0780837936
+        </a>
+        <a href="mailto:info@ishemarealestate.rw">✉️ info@ishemarealestate.rw</a>
+      </div>
+      <div class="top-bar-right">
+        <span>Currency:</span>
+        <div class="currency-toggle">
+          <button class="currency-btn active" data-currency="RWF">RWF</button>
+          <button class="currency-btn" data-currency="USD">USD</button>
+        </div>
+        <button class="theme-quick-btn" onclick="ISHEMA.toggleTheme()" title="Switch dark/light theme" aria-label="Toggle theme">
+          <span class="theme-quick-icon">🌙</span>
+          <span class="theme-quick-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header">
+    <div class="container navbar">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <img src="images/logo-icon.svg" alt="ISHEMA Real Estate Logo" class="logo-brand-img">
+        <div class="logo-text">
+          <span class="logo-title">ISHEMA <span>REAL ESTATE</span></span>
+          <span class="logo-tagline">Find Your Home • Find Your Land</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="properties.html?status=sale" class="nav-link">Buy</a></li>
+          <li><a href="properties.html?status=rent" class="nav-link">Rent</a></li>
+          <li><a href="properties.html?type=Land" class="nav-link">Land</a></li>
+          <li><a href="properties.html" class="nav-link">Properties</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <!-- Favorites Shortcut -->
+        <a href="properties.html?filter=favorites" class="fav-header-btn" title="Saved Properties">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span class="fav-badge-count">0</span>
+        </a>
+
+        <!-- Dark / Light Theme Toggle -->
+        <button class="theme-toggle-btn" onclick="ISHEMA.toggleTheme()" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <span class="theme-icon-light" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-icon-dark" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span class="theme-toggle-label">Theme</span>
+        </button>
+
+        <!-- Auth Buttons -->
+        <div id="header-auth-actions" style="display: flex; gap: 8px; align-items: center;">
+          <a href="account.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="account.html" class="btn btn-primary btn-sm">Register</a>
+          <a href="admin.html" class="btn btn-accent btn-sm">Admin Portal</a>
+        </div>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-tag">
+        <span>🇷🇼</span> Rwanda's Premier Property & Land Marketplace
+      </div>
+      <h1 class="hero-title">Find Your Dream Home & <span>Land</span></h1>
+      <p class="hero-subtitle">Discover houses, modern apartments, and titled land for sale and rent across Kigali, Musanze, Rubavu, and all provinces.</p>
+
+      <!-- Advanced Property Search Box -->
+      <div class="search-card-wrapper">
+        <div class="search-tabs">
+          <button class="search-tab-btn active" data-status="all" onclick="setSearchTab(this, 'all')">All</button>
+          <button class="search-tab-btn" data-status="sale" onclick="setSearchTab(this, 'sale')">Buy</button>
+          <button class="search-tab-btn" data-status="rent" onclick="setSearchTab(this, 'rent')">Rent</button>
+          <button class="search-tab-btn" data-status="land" onclick="setSearchTab(this, 'Land')">Land Only</button>
+        </div>
+
+        <form id="hero-search-form" onsubmit="handleHeroSearch(event)" class="search-form-grid">
+          <input type="hidden" id="search-status" value="all">
+
+          <!-- Property Type -->
+          <div class="form-group-custom">
+            <label for="search-type">Property Type</label>
+            <select id="search-type">
+              <option value="">All Types</option>
+              <option value="House">House</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Land">Land</option>
+              <option value="Commercial">Commercial Property</option>
+              <option value="Office">Office</option>
+              <option value="Shop">Shop</option>
+              <option value="Villa">Villa</option>
+            </select>
+          </div>
+
+          <!-- Location -->
+          <div class="form-group-custom">
+            <label for="search-location">Location (Rwanda)</label>
+            <select id="search-location">
+              <option value="">All Rwanda Locations</option>
+              <option value="Kigali">Kigali (All)</option>
+              <option value="Gasabo">Gasabo (Nyarutarama, Gacuriro, Kibagabaga)</option>
+              <option value="Kicukiro">Kicukiro (Rebero, Kanombe, Kabeza)</option>
+              <option value="Nyarugenge">Nyarugenge (Kiyovu, CBD)</option>
+              <option value="Musanze">Musanze (Virunga)</option>
+              <option value="Rubavu">Rubavu (Lake Kivu)</option>
+              <option value="Huye">Huye</option>
+              <option value="Rwamagana">Rwamagana</option>
+              <option value="Bugesera">Bugesera (Airport Area)</option>
+              <option value="Rusizi">Rusizi</option>
+              <option value="Other">Other Provinces</option>
+            </select>
+          </div>
+
+          <!-- Min Price -->
+          <div class="form-group-custom">
+            <label for="search-min-price">Min Price (RWF)</label>
+            <input type="number" id="search-min-price" placeholder="e.g. 20,000,000" step="5000000">
+          </div>
+
+          <!-- Max Price -->
+          <div class="form-group-custom">
+            <label for="search-max-price">Max Price (RWF)</label>
+            <input type="number" id="search-max-price" placeholder="e.g. 250,000,000" step="5000000">
+          </div>
+
+          <!-- Bedrooms -->
+          <div class="form-group-custom">
+            <label for="search-beds">Bedrooms</label>
+            <select id="search-beds">
+              <option value="">Any Beds</option>
+              <option value="1">1+ Bed</option>
+              <option value="2">2+ Beds</option>
+              <option value="3">3+ Beds</option>
+              <option value="4">4+ Beds</option>
+              <option value="5">5+ Beds</option>
+            </select>
+          </div>
+
+          <!-- Search Button -->
+          <button type="submit" class="btn btn-accent search-submit-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            Search
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Statistics Banner -->
+  <section class="stats-banner">
+    <div class="container stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">450<span>+</span></div>
+        <div class="stat-label">Properties in Rwanda</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">180<span>+</span></div>
+        <div class="stat-label">Verified Land Titles (UPI)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">98<span>%</span></div>
+        <div class="stat-label">Customer Satisfaction</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">30<span>+</span></div>
+        <div class="stat-label">Certified Local Agents</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Property Categories Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge">Explore Categories</span>
+        <h2 class="section-title">What Are You Looking For?</h2>
+        <p class="section-subtitle">Browse curated property types suited for residential living, business expansion, or land development in Rwanda.</p>
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-card" onclick="window.location.href='properties.html?type=House'">
+          <div class="cat-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h4 class="cat-title">Houses</h4>
+          <span class="cat-count">10+ Available</span>
+        </div>
+
+        <div class="category-card" onclick="window.location.href='properties.html?type=Apartment'">
+          <div class="cat-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="22.01"/><line x1="15" y1="22" x2="15" y2="22.01"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><line x1="9" y1="18" x2="9" y2="18.01"/><line x1="15" y1="18" x2="15" y2="18.01"/></svg>
+          </div>
+          <h4 class="cat-title">Apartments</h4>
+          <span class="cat-count">10+ Available</span>
+        </div>
+
+        <div class="category-card" onclick="window.location.href='properties.html?type=Land'">
+          <div class="cat-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <h4 class="cat-title">Land</h4>
+          <span class="cat-count">10+ Titled Plots</span>
+        </div>
+
+        <div class="category-card" onclick="window.location.href='properties.html?type=Commercial'">
+          <div class="cat-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <h4 class="cat-title">Commercial</h4>
+          <span class="cat-count">5+ Commercial</span>
+        </div>
+
+        <div class="category-card" onclick="window.location.href='properties.html?type=Office'">
+          <div class="cat-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h4 class="cat-title">Office</h4>
+          <span class="cat-count">Corporate Spaces</span>
+        </div>
+
+        <div class="category-card" onclick="window.location.href='properties.html?type=Shop'">
+          <div class="cat-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <h4 class="cat-title">Shops</h4>
+          <span class="cat-count">Retail Units</span>
+        </div>
+
+        <div class="category-card" onclick="window.location.href='properties.html?type=Villa'">
+          <div class="cat-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 21V12h6v9"/></svg>
+          </div>
+          <h4 class="cat-title">Villas</h4>
+          <span class="cat-count">High-End Luxury</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Properties Section -->
+  <section class="section-padding" style="background-color: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <span class="section-badge">Featured Listings</span>
+          <h2 class="section-title">Handpicked Real Estate in Rwanda</h2>
+          <p class="section-subtitle">Verified premium houses, apartments, and commercial listings. <em>(Prices are demo test values)</em></p>
+        </div>
+        <a href="properties.html" class="btn btn-outline">View All Properties →</a>
+      </div>
+
+      <!-- Properties Grid Container -->
+      <div class="properties-grid" id="featured-properties-container">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Dedicated Land Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge" style="background: #ecfdf5; color: #065f46; border-color: #a7f3d0;">🇷🇼 Prime Land In Rwanda</span>
+        <h2 class="section-title">Build Your Future on Verified Land</h2>
+        <p class="section-subtitle">Land is Rwanda's cornerstone asset. Every listing includes verified cadastral UPI numbers, master plan zoning details, and road access status.</p>
+      </div>
+
+      <div class="properties-grid" id="land-properties-container">
+        <!-- Rendered via JavaScript -->
+      </div>
+
+      <div class="text-center" style="margin-top: 40px;">
+        <a href="properties.html?type=Land" class="btn btn-primary">Browse All Land Listings in Rwanda →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Ishema Real Estate -->
+  <section class="section-padding why-us-section" id="about">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge">Why Ishema</span>
+        <h2 class="section-title">The Trusted Partner for Rwanda Real Estate</h2>
+        <p class="section-subtitle">We guide buyers, tenants, and investors with local Rwanda expertise, title deed verification, and ethical practices.</p>
+      </div>
+
+      <div class="features-box-grid">
+        <div class="feature-box">
+          <div class="feature-box-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Verified Title Deeds (UPI)</h3>
+          <p>We work directly with the Rwanda Land Management and Use Authority to verify Unique Parcel Identifiers (UPI) before listing land.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-box-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Transparent Local Pricing</h3>
+          <p>No inflated broker commissions or hidden fees. Transparent prices quoted clearly in Rwandan Francs (RWF) and USD equivalents.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-box-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Dedicated Rwanda Agents</h3>
+          <p>Bilingual agents speaking Kinyarwanda, English, and French ready to schedule visits and guide legal closing procedures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rwanda Prime Locations Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge">Locations</span>
+        <h2 class="section-title">Popular Destinations Across Rwanda</h2>
+        <p class="section-subtitle">From the diplomatic hills of Kigali to the volcanic vistas of Musanze and the beaches of Lake Kivu.</p>
+      </div>
+
+      <div class="locations-grid">
+        <div class="location-card" onclick="window.location.href='properties.html?location=Gasabo'">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Gasabo Kigali" class="location-img">
+          <div class="location-overlay">
+            <h3 class="location-name">Gasabo District</h3>
+            <span class="location-desc">Nyarutarama, Gacuriro & Kibagabaga</span>
+          </div>
+        </div>
+
+        <div class="location-card" onclick="window.location.href='properties.html?location=Kicukiro'">
+          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80" alt="Kicukiro Kigali" class="location-img">
+          <div class="location-overlay">
+            <h3 class="location-name">Kicukiro District</h3>
+            <span class="location-desc">Rebero, Kanombe & Kabeza</span>
+          </div>
+        </div>
+
+        <div class="location-card" onclick="window.location.href='properties.html?location=Musanze'">
+          <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80" alt="Musanze Northern Province" class="location-img">
+          <div class="location-overlay">
+            <h3 class="location-name">Musanze</h3>
+            <span class="location-desc">Volcanoes National Park & Kinigi</span>
+          </div>
+        </div>
+
+        <div class="location-card" onclick="window.location.href='properties.html?location=Rubavu'">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Rubavu Lake Kivu" class="location-img">
+          <div class="location-overlay">
+            <h3 class="location-name">Rubavu / Gisenyi</h3>
+            <span class="location-desc">Lake Kivu Shoreline & Beachfront</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Post Property Modal -->
+  <div class="modal-overlay" id="post-property-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 style="font-size: 1.25rem;">Post Your Property in Rwanda</h3>
+        <button class="modal-close-btn" onclick="closePostModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+          Submit your house, apartment, or land listing. All submissions are placed under <strong>Pending Verification</strong> until reviewed by our property verification team.
+        </p>
+        <form id="post-property-form" onsubmit="handlePostProperty(event)">
+          <div class="form-group">
+            <label for="post-title">Property Title *</label>
+            <input type="text" id="post-title" class="form-control" required placeholder="e.g. Modern 4-Bedroom Villa in Gacuriro">
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="post-type">Property Type *</label>
+              <select id="post-type" class="form-control" required onchange="togglePostFields(this.value)">
+                <option value="House">House</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Land">Land</option>
+                <option value="Commercial">Commercial Property</option>
+                <option value="Office">Office</option>
+                <option value="Shop">Shop</option>
+                <option value="Villa">Villa</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="post-status">Purpose *</label>
+              <select id="post-status" class="form-control" required>
+                <option value="sale">For Sale</option>
+                <option value="rent">For Rent</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="post-price">Price (RWF) *</label>
+              <input type="number" id="post-price" class="form-control" required placeholder="e.g. 120000000">
+            </div>
+            <div class="form-group">
+              <label for="post-location">Rwanda Location / District *</label>
+              <select id="post-location" class="form-control" required>
+                <option value="Kigali, Gasabo">Kigali, Gasabo</option>
+                <option value="Kigali, Kicukiro">Kigali, Kicukiro</option>
+                <option value="Kigali, Nyarugenge">Kigali, Nyarugenge</option>
+                <option value="Musanze">Musanze</option>
+                <option value="Rubavu">Rubavu</option>
+                <option value="Huye">Huye</option>
+                <option value="Bugesera">Bugesera</option>
+                <option value="Rwamagana">Rwamagana</option>
+                <option value="Other">Other Province</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="post-address">Sector & Neighborhood Address *</label>
+            <input type="text" id="post-address" class="form-control" required placeholder="e.g. Gacuriro, KG 9 Ave, Near Vision City">
+          </div>
+
+          <div class="form-grid-2" id="building-specs-row">
+            <div class="form-group">
+              <label for="post-bedrooms">Bedrooms</label>
+              <input type="number" id="post-bedrooms" class="form-control" value="3" min="0">
+            </div>
+            <div class="form-group">
+              <label for="post-bathrooms">Bathrooms</label>
+              <input type="number" id="post-bathrooms" class="form-control" value="2" min="0">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="post-size">Built Area (m²)</label>
+              <input type="number" id="post-size" class="form-control" placeholder="e.g. 280">
+            </div>
+            <div class="form-group">
+              <label for="post-land-size">Plot / Land Size (m²) *</label>
+              <input type="number" id="post-land-size" class="form-control" required placeholder="e.g. 500">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="post-description">Detailed Description *</label>
+            <textarea id="post-description" class="form-control" rows="3" required placeholder="Describe zoning, road condition, utilities, water supply..."></textarea>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="post-phone">Contact Phone *</label>
+              <input type="tel" id="post-phone" class="form-control" required value="+250 788 ">
+            </div>
+            <div class="form-group">
+              <label for="post-whatsapp">WhatsApp Number *</label>
+              <input type="tel" id="post-whatsapp" class="form-control" required value="+250788">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Property Photo URL (or use default Kigali demo image)</label>
+            <input type="url" id="post-image-url" class="form-control" placeholder="https://images.unsplash.com/photo-...">
+          </div>
+
+          <button type="submit" class="btn btn-accent" style="width: 100%; margin-top: 10px;">
+            Submit Property for Verification
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Account & Auth Modal -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-box" style="max-width: 480px;">
+      <div class="modal-header">
+        <h3 id="auth-modal-title">Sign In to Ishema</h3>
+        <button class="modal-close-btn" onclick="closeAuthModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+          <button class="btn btn-primary btn-sm" id="auth-tab-login" onclick="switchAuthTab('login')" style="flex: 1;">Login</button>
+          <button class="btn btn-outline btn-sm" id="auth-tab-register" onclick="switchAuthTab('register')" style="flex: 1;">Register</button>
+        </div>
+
+        <form id="auth-form" onsubmit="handleAuthSubmit(event)">
+          <div class="form-group" id="register-name-group" style="display: none;">
+            <label for="auth-name">Full Name</label>
+            <input type="text" id="auth-name" class="form-control" placeholder="e.g. Patrick Mugabo">
+          </div>
+          <div class="form-group">
+            <label for="auth-email">Email Address</label>
+            <input type="email" id="auth-email" class="form-control" required placeholder="name@example.com">
+          </div>
+          <div class="form-group">
+            <label for="auth-pass">Password</label>
+            <input type="password" id="auth-pass" class="form-control" required placeholder="••••••••">
+          </div>
+          <button type="submit" class="btn btn-accent" id="auth-submit-btn" style="width: 100%; margin-top: 8px;">
+            Sign In
+          </button>
+        </form>
+
+        <div style="margin-top: 20px; padding: 12px; background: var(--bg-subtle); border-radius: var(--radius-md); font-size: 0.8rem; color: var(--text-muted);">
+          <strong>Demo Profiles:</strong><br>
+          • Buyer: buyer@ishema.rw<br>
+          • Certified Agent: agent@ishema.rw<br>
+          • Administrator: admin@ishema.rw
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo" style="margin-bottom: 16px;">
+            <img src="images/logo-icon.svg" alt="ISHEMA Real Estate Logo" class="logo-brand-img">
+            <div class="logo-text">
+              <span class="logo-title" style="color: #ffffff;">ISHEMA <span>REAL ESTATE</span></span>
+              <span class="logo-tagline" style="color: #cbd5e1;">Find Your Home • Find Your Land</span>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+            Rwanda's leading digital real estate marketplace. Connecting buyers, tenants, and developers with verified land titles, residential homes, and commercial spaces across the country.
+          </p>
+          <p style="font-size: 0.85rem; color: var(--gold); font-weight: 600;">
+            "Find Your Home. Find Your Land. Build Your Future."
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="properties.html?status=sale">Houses for Sale</a></li>
+            <li><a href="properties.html?status=rent">Apartments for Rent</a></li>
+            <li><a href="properties.html?type=Land">Land Listings in Rwanda</a></li>
+            <li><a href="properties.html?type=Commercial">Commercial & Offices</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Rwanda Locations</h4>
+          <ul class="footer-links">
+            <li><a href="properties.html?location=Gasabo">Kigali - Gasabo</a></li>
+            <li><a href="properties.html?location=Kicukiro">Kigali - Kicukiro</a></li>
+            <li><a href="properties.html?location=Nyarugenge">Kigali - Nyarugenge</a></li>
+            <li><a href="properties.html?location=Musanze">Musanze (Northern)</a></li>
+            <li><a href="properties.html?location=Rubavu">Rubavu (Western)</a></li>
+            <li><a href="properties.html?location=Bugesera">Bugesera (Eastern)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact & Office</h4>
+          <p style="font-size: 0.88rem; margin-bottom: 8px;">📍 Kigali Heights, 4th Floor, KG 7 Ave, Kigali</p>
+          <p style="font-size: 0.88rem; margin-bottom: 8px;"><a href="tel:+250780837936" style="color: inherit;">📞 Call: 0780837936</a></p>
+          <p style="font-size: 0.88rem; margin-bottom: 12px;">
+            <a href="https://wa.me/250780837936" target="_blank" class="btn btn-whatsapp btn-sm" style="display: inline-flex;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              WhatsApp: 0780837936
+            </a>
+          </p>
+          <p style="font-size: 0.88rem; margin-bottom: 8px;">✉️ info@ishemarealestate.rw</p>
+          <p style="font-size: 0.88rem; color: #94a3b8; margin-top: 14px;">Hours: Monday – Saturday: 8:00 AM – 6:00 PM</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 ISHEMA Real Estate Ltd. All rights reserved. Registered in Rwanda.</p>
+        <p>Disclaimer: Demo property prices and descriptions are for illustrative platform testing.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+  <script>
+    // Homepage Specific Interactions
+    function setSearchTab(btn, status) {
+      document.querySelectorAll('.search-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('search-status').value = status;
+    }
+
+    function handleHeroSearch(e) {
+      e.preventDefault();
+      const status = document.getElementById('search-status').value;
+      const type = document.getElementById('search-type').value;
+      const location = document.getElementById('search-location').value;
+      const minPrice = document.getElementById('search-min-price').value;
+      const maxPrice = document.getElementById('search-max-price').value;
+      const beds = document.getElementById('search-beds').value;
+
+      const params = new URLSearchParams();
+      if (status && status !== 'all') params.set('status', status);
+      if (type) params.set('type', type);
+      if (location) params.set('location', location);
+      if (minPrice) params.set('minPrice', minPrice);
+      if (maxPrice) params.set('maxPrice', maxPrice);
+      if (beds) params.set('beds', beds);
+
+      window.location.href = `properties.html?${params.toString()}`;
+    }
+
+    // Modal controls
+    function openPostModal() {
+      document.getElementById('post-property-modal').classList.add('active');
+    }
+    function closePostModal() {
+      document.getElementById('post-property-modal').classList.remove('active');
+    }
+
+    function openAuthModal(mode) {
+      switchAuthTab(mode);
+      document.getElementById('auth-modal').classList.add('active');
+    }
+    function closeAuthModal() {
+      document.getElementById('auth-modal').classList.remove('active');
+    }
+
+    let authMode = 'login';
+    function switchAuthTab(mode) {
+      authMode = mode;
+      const nameGroup = document.getElementById('register-name-group');
+      const title = document.getElementById('auth-modal-title');
+      const submit = document.getElementById('auth-submit-btn');
+      const tabLogin = document.getElementById('auth-tab-login');
+      const tabRegister = document.getElementById('auth-tab-register');
+
+      if (mode === 'register') {
+        nameGroup.style.display = 'block';
+        title.textContent = 'Create an Account on Ishema';
+        submit.textContent = 'Register Account';
+        tabRegister.className = 'btn btn-primary btn-sm';
+        tabLogin.className = 'btn btn-outline btn-sm';
+      } else {
+        nameGroup.style.display = 'none';
+        title.textContent = 'Sign In to Ishema';
+        submit.textContent = 'Sign In';
+        tabLogin.className = 'btn btn-primary btn-sm';
+        tabRegister.className = 'btn btn-outline btn-sm';
+      }
+    }
+
+    function handleAuthSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('auth-email').value;
+      ISHEMA.showToast(`Welcome! Signed in as ${email}`);
+      closeAuthModal();
+    }
+
+    function togglePostFields(type) {
+      const row = document.getElementById('building-specs-row');
+      if (type === 'Land') {
+        row.style.display = 'none';
+      } else {
+        row.style.display = 'grid';
+      }
+    }
+
+    function handlePostProperty(e) {
+      e.preventDefault();
+      const newProp = {
+        id: "usr_" + Date.now(),
+        title: document.getElementById('post-title').value,
+        type: document.getElementById('post-type').value,
+        status: document.getElementById('post-status').value,
+        price: Number(document.getElementById('post-price').value),
+        location: document.getElementById('post-location').value,
+        neighborhood: document.getElementById('post-address').value,
+        bedrooms: Number(document.getElementById('post-bedrooms').value || 0),
+        bathrooms: Number(document.getElementById('post-bathrooms').value || 0),
+        size: Number(document.getElementById('post-size').value || 150),
+        landSize: Number(document.getElementById('post-land-size').value || 300),
+        yearBuilt: 2025,
+        furnished: "Unfurnished",
+        verified: false,
+        featured: false,
+        views: 1,
+        dateListed: new Date().toISOString().split('T')[0],
+        description: document.getElementById('post-description').value,
+        amenities: ["Submitted by Owner", "Pending Inspection"],
+        images: [
+          document.getElementById('post-image-url').value || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+        ],
+        agent: {
+          name: "Direct Owner / Agent",
+          phone: document.getElementById('post-phone').value,
+          whatsapp: document.getElementById('post-whatsapp').value,
+          email: "listing@ishemarealestate.rw",
+          agency: "Private Listing",
+          photo: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80"
+        }
+      };
+
+      const existing = JSON.parse(localStorage.getItem('ishema_user_properties') || '[]');
+      existing.unshift(newProp);
+      localStorage.setItem('ishema_user_properties', JSON.stringify(existing));
+
+      ISHEMA.showToast("Property submitted successfully! It is now pending admin verification.");
+      closePostModal();
+      document.getElementById('post-property-form').reset();
+      loadHomeProperties();
+    }
+
+    async function loadHomeProperties() {
+      const all = await ISHEMA.fetchProperties();
+      
+      // Featured Section (first 6 items)
+      const featuredContainer = document.getElementById('featured-properties-container');
+      if (featuredContainer) {
+        const featured = all.slice(0, 6);
+        featuredContainer.innerHTML = featured.length > 0 
+          ? featured.map(p => ISHEMA.renderCard(p)).join('')
+          : '<p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 30px;">Loading properties from database...</p>';
+      }
+
+      // Land Section (items of type Land)
+      const landContainer = document.getElementById('land-properties-container');
+      if (landContainer) {
+        const land = all.filter(p => p.type === 'Land').slice(0, 3);
+        landContainer.innerHTML = land.length > 0
+          ? land.map(p => ISHEMA.renderCard(p)).join('')
+          : '<p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 30px;">Explore land plots in Rwanda.</p>';
+      }
+    }
+
+    window.refreshListings = loadHomeProperties;
+    document.addEventListener('DOMContentLoaded', loadHomeProperties);
+  </script>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/250780837936?text=Hello%20ISHEMA%20Real%20Estate,%20I%20am%20interested%20in%20buying%20or%20renting%20property%20in%20Rwanda." target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <div class="floating-whatsapp-tooltip">Chat with us: <span>0780837936</span></div>
+    <div class="floating-whatsapp-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </div>
+  </a>
+</body>
+</html>

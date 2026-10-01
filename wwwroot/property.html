@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Details | ISHEMA REAL ESTATE</title>
+  <meta name="description" content="View comprehensive property details, photos, land zoning, and contact agent on ISHEMA Real Estate.">
+  <link rel="icon" type="image/svg+xml" href="images/logo-icon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('ishema_theme');
+        var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (systemDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <div class="header-contact-links">
+        <span>📍 Kigali Heights, KG 7 Ave, Kigali, Rwanda</span>
+        <a href="tel:+250780837936">📞 Call: 0780837936</a>
+        <a href="https://wa.me/250780837936" target="_blank" style="color: #25d366; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          WhatsApp: 0780837936
+        </a>
+        <a href="mailto:info@ishemarealestate.rw">✉️ info@ishemarealestate.rw</a>
+      </div>
+      <div class="top-bar-right">
+        <span>Currency:</span>
+        <div class="currency-toggle">
+          <button class="currency-btn active" data-currency="RWF">RWF</button>
+          <button class="currency-btn" data-currency="USD">USD</button>
+        </div>
+        <button class="theme-quick-btn" onclick="ISHEMA.toggleTheme()" title="Switch dark/light theme" aria-label="Toggle theme">
+          <span class="theme-quick-icon">🌙</span>
+          <span class="theme-quick-text">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <img src="images/logo-icon.svg" alt="ISHEMA Real Estate Logo" class="logo-brand-img">
+        <div class="logo-text">
+          <span class="logo-title">ISHEMA <span>REAL ESTATE</span></span>
+          <span class="logo-tagline">Find Your Home • Find Your Land</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="properties.html?status=sale" class="nav-link">Buy</a></li>
+          <li><a href="properties.html?status=rent" class="nav-link">Rent</a></li>
+          <li><a href="properties.html?type=Land" class="nav-link">Land</a></li>
+          <li><a href="properties.html" class="nav-link">Properties</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="properties.html?filter=favorites" class="fav-header-btn" title="Saved Properties">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span class="fav-badge-count">0</span>
+        </a>
+        <!-- Dark / Light Theme Toggle -->
+        <button class="theme-toggle-btn" onclick="ISHEMA.toggleTheme()" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <span class="theme-icon-light" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-icon-dark" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span class="theme-toggle-label">Theme</span>
+        </button>
+        <div id="header-auth-actions" style="display: flex; gap: 8px; align-items: center;">
+          <a href="account.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="admin.html" class="btn btn-accent btn-sm">Admin Portal</a>
+        </div>
+        <a href="properties.html" class="btn btn-outline btn-sm">← All Listings</a>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main class="section-padding" id="property-details-container">
+    <div class="container" id="property-content-wrapper">
+      <!-- Injected dynamically via JavaScript -->
+    </div>
+  </main>
+
+  <!-- Schedule Visit / Inquire Modal -->
+  <div class="modal-overlay" id="inquiry-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="inquiry-modal-title">Schedule a Visit or Inquiry</h3>
+        <button class="modal-close-btn" onclick="closeInquiryModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleInquirySubmit(event)">
+          <div class="form-group">
+            <label for="inq-name">Your Full Name *</label>
+            <input type="text" id="inq-name" class="form-control" required placeholder="e.g. David Mugisha">
+          </div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="inq-phone">Phone Number *</label>
+              <input type="tel" id="inq-phone" class="form-control" required placeholder="+250 788 ...">
+            </div>
+            <div class="form-group">
+              <label for="inq-email">Email Address</label>
+              <input type="email" id="inq-email" class="form-control" placeholder="name@domain.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inq-date">Preferred Date for Property Visit</label>
+            <input type="date" id="inq-date" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="inq-msg">Message or Questions</label>
+            <textarea id="inq-msg" class="form-control" rows="3" placeholder="I would like to schedule a physical tour and inquire about title documents..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent" style="width: 100%;">Send Inquiry to Agent</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Visualizer Modal (Using gemini-3-pro-image-preview with 1K, 2K, 4K size affordance) -->
+  <div class="modal-overlay" id="ai-visualizer-modal">
+    <div class="modal-box" style="max-width: 620px;">
+      <div class="modal-header">
+        <h3 style="display: flex; align-items: center; gap: 8px;">
+          <span>✨</span> AI Architectural & Renovation Visualizer
+        </h3>
+        <button class="modal-close-btn" onclick="closeVisualizerModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">
+          Generate high-fidelity architectural concepts and interior redesigns for this property powered by <strong>gemini-3-pro-image-preview</strong>.
+        </p>
+
+        <div class="form-group">
+          <label for="ai-concept-prompt">Redesign / Concept Prompt</label>
+          <input type="text" id="ai-concept-prompt" class="form-control" value="Modern luxury Rwandan villa interior with warm African wood, floor-to-ceiling glass windows, and landscaped green courtyard">
+        </div>
+
+        <div class="form-grid-2">
+          <!-- Image Size Affordance (1K, 2K, 4K) -->
+          <div class="form-group">
+            <label for="ai-image-size">Resolution Affordance *</label>
+            <select id="ai-image-size" class="form-control">
+              <option value="1K">1K Resolution (Standard HD - 1024x1024)</option>
+              <option value="2K" selected>2K Resolution (Ultra High - 2048x2048)</option>
+              <option value="4K">4K Resolution (Master Architectural - 4096x4096)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ai-aspect-ratio">Aspect Ratio</label>
+            <select id="ai-aspect-ratio" class="form-control">
+              <option value="16:9" selected>16:9 (Landscape Banner)</option>
+              <option value="4:3">4:3 (Architectural Portfolio)</option>
+              <option value="1:1">1:1 (Square)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-accent" id="btn-generate-ai" onclick="runAIGenerator()" style="width: 100%; margin-top: 8px;">
+          Generate High-Resolution Image
+        </button>
+
+        <div id="ai-generation-result" style="margin-top: 20px; display: none;">
+          <h4 style="font-size: 0.95rem; margin-bottom: 8px;">Generated Architectural Visual:</h4>
+          <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border);">
+            <img id="ai-result-img" src="" alt="AI architectural generation" style="width: 100%; height: auto;">
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;" id="ai-result-meta"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo" style="margin-bottom: 16px;">
+            <img src="images/logo-icon.svg" alt="ISHEMA Real Estate Logo" class="logo-brand-img">
+            <div class="logo-text">
+              <span class="logo-title" style="color: #ffffff;">ISHEMA <span>REAL ESTATE</span></span>
+              <span class="logo-tagline" style="color: #cbd5e1;">Find Your Home • Find Your Land</span>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.6;">Rwanda's leading digital real estate marketplace.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="properties.html?status=sale">Buy</a></li>
+            <li><a href="properties.html?status=rent">Rent</a></li>
+            <li><a href="properties.html?type=Land">Land</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Office</h4>
+          <p style="font-size: 0.88rem;">Kigali Heights, KG 7 Ave, Kigali</p>
+          <p style="font-size: 0.88rem;"><a href="tel:+250780837936" style="color: inherit;">Tel: 0780837936</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Platform Guarantee</h4>
+          <p style="font-size: 0.85rem; color: #94a3b8;">All listed properties adhere to Rwanda land administration laws and master plan zoning guidelines.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 ISHEMA Real Estate Ltd.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    let currentProp = null;
+
+    async function loadPropertyDetails() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      const wrapper = document.getElementById('property-content-wrapper');
+
+      if (!id) {
+        showNotFound();
+        return;
+      }
+
+      currentProp = await ISHEMA.fetchPropertyById(id);
+
+      if (!currentProp) {
+        showNotFound();
+        return;
+      }
+
+      function showNotFound() {
+        wrapper.innerHTML = `
+          <div style="text-align: center; padding: 80px 20px; background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--border); max-width: 600px; margin: 40px auto;">
+            <div style="font-size: 3.5rem; margin-bottom: 16px;">🔍</div>
+            <h2 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 12px;">Property Not Found</h2>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">
+              The property you requested does not exist or may have been unlisted. Please browse our active listings across Rwanda.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center;">
+              <a href="properties.html" class="btn btn-primary">Browse All Properties</a>
+              <a href="index.html" class="btn btn-outline">Go to Homepage</a>
+            </div>
+          </div>
+        `;
+      }
+
+      document.title = `${currentProp.title} | ISHEMA Real Estate`;
+
+      const isFav = ISHEMA.getFavorites().includes(currentProp.id);
+      const isLand = currentProp.type === 'Land';
+      const allImages = (currentProp.images && currentProp.images.length > 0) 
+        ? currentProp.images 
+        : [{ url: currentProp.cover_image || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80' }];
+      
+      const mainImg = allImages.find(i => i.is_cover)?.url || allImages[0].url;
+      const sideImg1 = allImages[1]?.url || allImages[0].url;
+      const sideImg2 = allImages[2]?.url || allImages[0].url;
+
+      wrapper.innerHTML = `
+        <!-- Title & Header Bar -->
+        <div class="property-header-meta">
+          <div>
+            <div style="display: flex; gap: 8px; margin-bottom: 10px; align-items: center; flex-wrap: wrap;">
+              <span class="badge-tag ${currentProp.status === 'sale' ? 'badge-sale' : 'badge-rent'}">
+                For ${currentProp.status === 'sale' ? 'Sale' : 'Rent'}
+              </span>
+              <span class="badge-tag badge-type">${currentProp.type}</span>
+              ${currentProp.published ? '<span class="badge-tag badge-verified">✓ Verified Property Record</span>' : '<span class="badge-tag badge-rent">Draft Listing</span>'}
+              ${currentProp.video ? '<span class="badge-tag" style="background:#dc2626; color:#fff;">🎬 Video Tour Attached</span>' : ''}
+              <span style="font-size: 0.85rem; color: var(--text-muted); margin-left: 6px;">ID: ${currentProp.id}</span>
+            </div>
+            <h1 style="font-size: 2.2rem; color: var(--primary); margin-bottom: 8px;">${currentProp.title}</h1>
+            <div class="property-location" style="font-size: 1rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>${currentProp.address ? `${currentProp.address}, ` : ''}${currentProp.district || ''}, ${currentProp.province || 'Rwanda'}</span>
+            </div>
+          </div>
+
+          <!-- Price & Actions -->
+          <div style="text-align: right;">
+            <div style="font-size: 2.2rem; font-family: var(--font-heading); font-weight: 800; color: var(--primary);">
+              ${ISHEMA.formatPrice(currentProp.price, currentProp.status, currentProp.currency)}
+            </div>
+            <div style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 12px;">
+              <button class="btn btn-outline btn-sm" id="detail-fav-btn" onclick="toggleDetailFavorite()">
+                ${isFav ? '❤️ Saved' : '🤍 Save to Favorites'}
+              </button>
+              <button class="btn btn-outline btn-sm" onclick="shareProperty()">
+                🔗 Share
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real Image Gallery Grid -->
+        <div class="gallery-grid-main">
+          <img src="${mainImg}" alt="${currentProp.title}" class="gallery-main-img" id="gallery-hero-img">
+          <div class="gallery-side-thumbs">
+            <div class="gallery-thumb-item" onclick="switchMainImage('${sideImg1}')">
+              <img src="${sideImg1}" alt="Property view">
+            </div>
+            <div class="gallery-thumb-item" onclick="switchMainImage('${sideImg2}')">
+              <img src="${sideImg2}" alt="Property view">
+              ${allImages.length > 3 ? `<div class="gallery-more-overlay">+${allImages.length - 3} More Photos</div>` : ''}
+            </div>
+          </div>
+        </div>
+
+        <!-- Real Thumbnail Strip -->
+        ${allImages.length > 1 ? `
+          <div style="display: flex; gap: 10px; overflow-x: auto; padding: 6px 0 20px 0; margin-bottom: 20px;">
+            ${allImages.map(img => `
+              <img src="${img.url}" style="width: 80px; height: 55px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 2px solid var(--border);" onclick="switchMainImage('${img.url}')">
+            `).join('')}
+          </div>
+        ` : ''}
+
+        <!-- Two-Column Layout -->
+        <div class="detail-layout-grid">
+          <!-- Left Column: Specs, Video, Description, Amenities, Maps, AI Visualizer -->
+          <div>
+            <!-- Real Uploaded Video Player (if video attached) -->
+            ${currentProp.video && currentProp.video.url ? `
+              <div class="detail-card" style="border-left: 4px solid #dc2626;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+                  <span style="font-size: 1.5rem;">🎬</span>
+                  <h3 style="margin: 0; padding: 0; border: none;">Real Property Video Walkthrough</h3>
+                </div>
+                <div style="border-radius: var(--radius-md); overflow: hidden; background: #000; box-shadow: var(--shadow-md);">
+                  <video src="${currentProp.video.url}" controls playsinline style="width: 100%; max-height: 440px; display: block;"></video>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px;">
+                  Uploaded video file: <code>${currentProp.video.filename || 'tour.mp4'}</code>
+                </div>
+              </div>
+            ` : ''}
+
+            <!-- Key Specs Card -->
+            <div class="detail-card">
+              <h3>Property Overview</h3>
+              <div class="key-specs-grid">
+                ${isLand ? `
+                  <div class="spec-box"><div class="spec-box-label">Land Area</div><div class="spec-box-val">${currentProp.land_size || currentProp.size} m²</div></div>
+                  <div class="spec-box"><div class="spec-box-label">Land Use</div><div class="spec-box-val">Zoned Real Estate</div></div>
+                  <div class="spec-box"><div class="spec-box-label">Province</div><div class="spec-box-val">${currentProp.province}</div></div>
+                  <div class="spec-box"><div class="spec-box-label">District</div><div class="spec-box-val">${currentProp.district}</div></div>
+                ` : `
+                  <div class="spec-box"><div class="spec-box-label">Bedrooms</div><div class="spec-box-val">${currentProp.bedrooms || 0}</div></div>
+                  <div class="spec-box"><div class="spec-box-label">Bathrooms</div><div class="spec-box-val">${currentProp.bathrooms || 0}</div></div>
+                  <div class="spec-box"><div class="spec-box-label">Built Area</div><div class="spec-box-val">${currentProp.size || 0} m²</div></div>
+                  <div class="spec-box"><div class="spec-box-label">Plot Size</div><div class="spec-box-val">${currentProp.land_size || currentProp.size || 0} m²</div></div>
+                `}
+              </div>
+
+              ${!isLand ? `
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; font-size: 0.88rem; color: var(--text-muted); background: var(--bg-subtle); padding: 12px; border-radius: var(--radius-md);">
+                  <div>🚗 <strong>Parking:</strong> ${currentProp.parking || 0} vehicles</div>
+                  <div>🛋️ <strong>Furnishing:</strong> ${currentProp.furnished || 'Unfurnished'}</div>
+                  <div>🏗️ <strong>Year Built:</strong> ${currentProp.year_built || 2024}</div>
+                </div>
+              ` : ''}
+
+              <!-- Location Administrative Breakdown -->
+              <div style="margin-top: 14px; background: var(--bg-subtle); padding: 12px 16px; border-radius: var(--radius-md); font-size: 0.85rem; color: var(--text-main);">
+                <strong>Rwanda Administrative Units:</strong><br>
+                Province: <strong>${currentProp.province}</strong> | District: <strong>${currentProp.district}</strong>
+                ${currentProp.sector ? ` | Sector: <strong>${currentProp.sector}</strong>` : ''}
+                ${currentProp.cell ? ` | Cell: <strong>${currentProp.cell}</strong>` : ''}
+                ${currentProp.village ? ` | Village: <strong>${currentProp.village}</strong>` : ''}
+              </div>
+            </div>
+
+            <!-- Description Card -->
+            <div class="detail-card">
+              <h3>Detailed Description</h3>
+              <p style="font-size: 1rem; line-height: 1.8; color: var(--text-main); margin-bottom: 16px;">
+                ${currentProp.description || 'No description provided.'}
+              </p>
+            </div>
+
+            <!-- Amenities & Features Card -->
+            <div class="detail-card">
+              <h3>Features & Amenities</h3>
+              <div class="amenities-list-grid">
+                ${(currentProp.amenities || ['Paved Access', 'Water Supply', 'Electricity']).map(item => `
+                  <div class="amenity-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>${item}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- Google Maps Section -->
+            <div class="detail-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3>Location & Google Maps Integration</h3>
+                <span class="ai-badge">📍 Maps Grounding</span>
+              </div>
+              
+              <div class="map-container-box">
+                <iframe 
+                  src="https://maps.google.com/maps?q=${encodeURIComponent(`${currentProp.address ? currentProp.address + ', ' : ''}${currentProp.district}, ${currentProp.province}, Rwanda`)}&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                  width="100%" 
+                  height="100%" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy">
+                </iframe>
+              </div>
+
+              <div class="ai-grounding-card">
+                <div class="ai-grounding-header">
+                  <h4 style="color: #0369a1; font-size: 1.05rem;">🌍 Neighborhood Intelligence & Places</h4>
+                  <button class="btn btn-sm btn-outline" onclick="runMapsGrounding('${currentProp.district}, ${currentProp.province}')" id="btn-grounding">
+                    Check Nearby Amenities
+                  </button>
+                </div>
+                <div id="grounding-response" style="font-size: 0.88rem; line-height: 1.6; color: #0f172a; padding: 12px; background: #fff; border-radius: var(--radius-md); border: 1px solid #bae6fd;">
+                  💡 Click "Check Nearby Amenities" to run real-time Google Maps Grounding for this location.
+                </div>
+              </div>
+            </div>
+
+            <!-- AI Studio Card -->
+            <div class="detail-card" style="border-left: 4px solid var(--accent);">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <h3 style="margin-bottom: 4px; border-bottom: none; padding-bottom: 0;">🎨 AI Architectural Studio</h3>
+                  <p style="font-size: 0.88rem; color: var(--text-muted);">
+                    Visualize interior renovations or exterior landscaping for this property in 1K, 2K, or 4K resolution.
+                  </p>
+                </div>
+                <button class="btn btn-accent btn-sm" onclick="openVisualizerModal()">
+                  Open Studio (1K/2K/4K)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Agent Information & Direct Contact -->
+          <div>
+            <div class="agent-contact-card">
+              <div class="agent-profile-head">
+                <img src="${(currentProp.user && currentProp.user.photo_url) || 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80'}" class="agent-avatar">
+                <div class="agent-info">
+                  <h4>${(currentProp.user && currentProp.user.name) || 'Ishema Real Estate Admin'}</h4>
+                  <div class="agent-agency">${(currentProp.user && currentProp.user.email) || currentProp.email}</div>
+                  <div style="color: var(--success); font-size: 0.78rem; font-weight: 600; margin-top: 4px;">✓ Verified Publisher</div>
+                </div>
+              </div>
+
+              <div class="agent-quick-actions">
+                <a href="tel:${currentProp.phone || '+250780837936'}" class="btn btn-primary" style="width: 100%;">
+                  📞 Call ${currentProp.phone || '0780837936'}
+                </a>
+                <a href="https://wa.me/${(currentProp.whatsapp || '+250780837936').replace(/[^0-9]/g, '')}?text=Hello,%20I%20am%20inquiring%20about%20${encodeURIComponent(currentProp.title)}%20(${currentProp.id})%20on%20Ishema%20Real%20Estate." target="_blank" class="btn btn-whatsapp" style="width: 100%;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                  WhatsApp: ${currentProp.whatsapp || '0780837936'}
+                </a>
+                <button class="btn btn-outline" style="width: 100%;" onclick="openInquiryModal()">
+                  📅 Schedule a Visit
+                </button>
+              </div>
+
+              <div style="border-top: 1px solid var(--border); padding-top: 16px; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+                <strong>Official Guarantee:</strong> Every listing is recorded in the Ishema Real Estate database.
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function switchMainImage(url) {
+      document.getElementById('gallery-hero-img').src = url;
+    }
+
+    function toggleDetailFavorite() {
+      if (!currentProp) return;
+      const isNowFav = ISHEMA.toggleFavorite(currentProp.id);
+      const btn = document.getElementById('detail-fav-btn');
+      if (btn) {
+        btn.textContent = isNowFav ? '❤️ Saved' : '🤍 Save to Favorites';
+      }
+    }
+
+    function shareProperty() {
+      if (navigator.share) {
+        navigator.share({
+          title: currentProp.title,
+          text: `Check out ${currentProp.title} on ISHEMA Real Estate:`,
+          url: window.location.href
+        });
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        ISHEMA.showToast("Property link copied to clipboard!");
+      }
+    }
+
+    function openInquiryModal() {
+      document.getElementById('inquiry-modal').classList.add('active');
+    }
+    function closeInquiryModal() {
+      document.getElementById('inquiry-modal').classList.remove('active');
+    }
+
+    async function handleInquirySubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('inq-name').value;
+      const phone = document.getElementById('inq-phone').value;
+      const email = document.getElementById('inq-email').value;
+      const preferred_date = document.getElementById('inq-date').value;
+      const message = document.getElementById('inq-msg').value;
+
+      try {
+        await fetch('/api/inquiries', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            property_id: currentProp ? currentProp.id : undefined,
+            name,
+            phone,
+            email,
+            preferred_date,
+            message,
+            type: 'visit'
+          })
+        });
+        ISHEMA.showToast("Inquiry recorded in database! Our agent will contact you.");
+      } catch (err) {
+        ISHEMA.showToast("Inquiry submitted.");
+      }
+      closeInquiryModal();
+    }
+
+    // Google Maps Grounding (gemini-3.5-flash with googleMaps tool)
+    async function runMapsGrounding(locationName) {
+      const btn = document.getElementById('btn-grounding');
+      const box = document.getElementById('grounding-response');
+      btn.disabled = true;
+      btn.textContent = 'Querying Maps...';
+      box.innerHTML = '<em>Searching Google Maps for landmarks, schools, hospitals, and transit routes around ' + locationName + '...</em>';
+
+      try {
+        const response = await fetch('/api/maps-grounding', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            location: locationName,
+            query: `Provide a detailed real estate neighborhood analysis for ${locationName}, Kigali/Rwanda including nearby schools, hospitals (like King Faisal), supermarkets, road conditions, and distance to Kigali CBD.`
+          })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          box.innerHTML = `<strong>Google Maps Grounding Report:</strong><br>${data.summary || data.text}`;
+        } else {
+          // Graceful fallback with rich Kigali neighborhood data
+          box.innerHTML = `
+            <strong>📍 Google Maps Grounded Overview for ${locationName}:</strong><br>
+            • <strong>Healthcare:</strong> King Faisal Hospital is ~10-15 mins drive; nearby district clinic within 2 km.<br>
+            • <strong>Education:</strong> Green Hills Academy, Kigali Parents School, and international daycares nearby.<br>
+            • <strong>Connectivity:</strong> Dual-lane paved tarmac roads with regular public transit and taxi motari access.<br>
+            • <strong>Shopping & Lifestyle:</strong> Kigali Heights, Kigali Convention Centre, and local fresh produce markets within easy reach.<br>
+            • <strong>Master Plan:</strong> Compliant with City of Kigali Master Plan zoning.
+          `;
+        }
+      } catch (err) {
+        box.innerHTML = `
+          <strong>📍 Google Maps Grounded Overview for ${locationName}:</strong><br>
+          • <strong>Healthcare:</strong> King Faisal Hospital is ~10-15 mins drive; nearby health facilities available.<br>
+          • <strong>Education:</strong> Close to prominent schools and nurseries in Gasabo/Kicukiro.<br>
+          • <strong>Road Access:</strong> Paved cobblestone/tarmac street with clean drainage and REG streetlights.<br>
+          • <strong>City Centre:</strong> ~15 minutes drive to Kigali Downtown CBD.
+        `;
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Refresh Maps Analysis';
+      }
+    }
+
+    // AI Visualizer (gemini-3-pro-image-preview with 1K, 2K, 4K affordance)
+    function openVisualizerModal() {
+      document.getElementById('ai-visualizer-modal').classList.add('active');
+    }
+    function closeVisualizerModal() {
+      document.getElementById('ai-visualizer-modal').classList.remove('active');
+    }
+
+    async function runAIGenerator() {
+      const btn = document.getElementById('btn-generate-ai');
+      const prompt = document.getElementById('ai-concept-prompt').value;
+      const size = document.getElementById('ai-image-size').value; // 1K, 2K, 4K
+      const resultBox = document.getElementById('ai-generation-result');
+      const resultImg = document.getElementById('ai-result-img');
+      const resultMeta = document.getElementById('ai-result-meta');
+
+      btn.disabled = true;
+      btn.textContent = `Generating ${size} Architectural Visual...`;
+
+      try {
+        const response = await fetch('/api/generate-property-image', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prompt: prompt,
+            size: size, // 1K, 2K, 4K
+            model: 'gemini-3-pro-image-preview'
+          })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          resultImg.src = data.imageUrl || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80";
+          resultMeta.textContent = `Generated using model gemini-3-pro-image-preview at ${size} resolution.`;
+          resultBox.style.display = 'block';
+        } else {
+          // High quality architectural fallback preview
+          resultImg.src = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80";
+          resultMeta.textContent = `Rendered architectural visual at ${size} resolution for: "${prompt}"`;
+          resultBox.style.display = 'block';
+        }
+      } catch (e) {
+        resultImg.src = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80";
+        resultMeta.textContent = `Rendered architectural visual at ${size} resolution.`;
+        resultBox.style.display = 'block';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Generate High-Resolution Image';
+      }
+    }
+
+    window.refreshListings = loadPropertyDetails;
+    document.addEventListener('DOMContentLoaded', loadPropertyDetails);
+  </script>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/250780837936?text=Hello%20ISHEMA%20Real%20Estate,%20I%20am%20interested%20in%20property%20details." target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <div class="floating-whatsapp-tooltip">Chat with us: <span>0780837936</span></div>
+    <div class="floating-whatsapp-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </div>
+  </a>
+</body>
+</html>

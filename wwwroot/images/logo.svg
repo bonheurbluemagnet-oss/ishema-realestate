@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Brand Gradients & Colors -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5b324" />
+      <stop offset="50%" stop-color="#e59f0c" />
+      <stop offset="100%" stop-color="#c98200" />
+    </linearGradient>
+
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#143c68" />
+      <stop offset="100%" stop-color="#0a2340" />
+    </linearGradient>
+
+    <linearGradient id="darkGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#df960b" />
+      <stop offset="100%" stop-color="#b67300" />
+    </linearGradient>
+
+    <style>
+      .navy-fill { fill: #0b2f5c; }
+      .navy-stroke { stroke: #0b2f5c; }
+      .gold-fill { fill: #df9907; }
+      .gold-stroke { stroke: #df9907; }
+      .white-fill { fill: #ffffff; }
+      .brand-title { font-family: 'Poppins', 'Montserrat', 'Arial Black', sans-serif; font-weight: 900; letter-spacing: 2px; }
+      .brand-sub { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 700; letter-spacing: 8px; }
+      .brand-tagline { font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 0.5px; }
+    </style>
+  </defs>
+
+  <!-- Background (Transparent or pure white) -->
+  <rect width="100%" height="100%" fill="transparent" />
+
+  <g transform="translate(0, 20)">
+    <!-- ============================================== -->
+    <!-- 1. SKYLINE BUILDINGS & TOWERS (BACKGROUND)      -->
+    <!-- ============================================== -->
+
+    <!-- Tower 1: Far Left Gold -->
+    <polygon points="180,330 220,310 220,240 180,265" fill="#e59f0c" />
+    <polygon points="220,310 226,306 226,236 220,240" fill="#b87a00" />
+
+    <!-- Tower 2: Left Navy Blue -->
+    <polygon points="222,340 280,305 280,185 222,225" fill="#0b2f5c" />
+    <polygon points="280,305 292,298 292,176 280,185" fill="#071d38" />
+
+    <!-- Tower 3: Center-Left Tall Spire (Main Center Building) -->
+    <!-- Left Navy Face -->
+    <polygon points="290,340 370,285 370,80 290,145" fill="#0b2f5c" />
+    <!-- Right Gold Face -->
+    <polygon points="370,285 435,325 435,130 370,80" fill="url(#goldGradient)" />
+
+    <!-- Tower 4: Right Navy Tower -->
+    <polygon points="432,350 495,305 495,190 432,235" fill="#0b2f5c" />
+    <polygon points="495,305 506,298 506,183 495,190" fill="#071d38" />
+
+    <!-- Tower 5: Far Right Gold Tower -->
+    <polygon points="502,360 545,330 545,260 502,285" fill="#e59f0c" />
+    <polygon points="545,330 552,325 552,255 545,260" fill="#b87a00" />
+
+    <!-- ============================================== -->
+    <!-- 2. SUN & MOUNTAIN (RIGHT SIDE)                 -->
+    <!-- ============================================== -->
+    <!-- Golden Sun Disc -->
+    <circle cx="595" cy="300" r="48" fill="#e59f0c" />
+
+    <!-- Mountain Silhouette in Navy -->
+    <path d="M 525,370 Q 580,310 635,325 Q 675,340 735,400 L 525,400 Z" fill="#0b2f5c" />
+    <path d="M 620,380 Q 660,345 715,365 L 735,400 L 620,400 Z" fill="#071d38" opacity="0.6" />
+
+    <!-- ============================================== -->
+    <!-- 3. MAIN HOUSE ROOF & GABLE                     -->
+    <!-- ============================================== -->
+    <!-- Chimney on Right Slope -->
+    <polygon points="485,340 485,280 515,280 515,360" fill="#0b2f5c" />
+    <polygon points="480,280 520,280 520,272 480,272" fill="#071d38" />
+
+    <!-- Navy Gable Roof Outer -->
+    <polygon points="370,230 650,425 615,445 370,275 125,445 90,425" fill="#0b2f5c" />
+
+    <!-- White Inner Gable Background -->
+    <polygon points="370,278 595,436 145,436" fill="#ffffff" />
+
+    <!-- 4-Pane Golden Window -->
+    <g transform="translate(345, 335)">
+      <!-- Top-Left Pane -->
+      <rect x="0" y="0" width="22" height="22" rx="2" fill="#e59f0c" />
+      <!-- Top-Right Pane -->
+      <rect x="28" y="0" width="22" height="22" rx="2" fill="#e59f0c" />
+      <!-- Bottom-Left Pane -->
+      <rect x="0" y="28" width="22" height="22" rx="2" fill="#e59f0c" />
+      <!-- Bottom-Right Pane -->
+      <rect x="28" y="28" width="22" height="22" rx="2" fill="#e59f0c" />
+    </g>
+
+    <!-- Additional Roof Trimming Lines -->
+    <polyline points="90,425 370,230 650,425" fill="none" stroke="#0b2f5c" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" />
+
+    <!-- ============================================== -->
+    <!-- 4. GOLDEN SWEEPING FOUNDATION / HORIZON SWOOSH -->
+    <!-- ============================================== -->
+    <path d="M 65,475 Q 360,420 735,460 C 650,478 400,470 65,475 Z" fill="url(#goldGradient)" />
+
+    <!-- ============================================== -->
+    <!-- 5. BRAND WORDMARK: ISHEMA                      -->
+    <!-- ============================================== -->
+    <text x="400" y="605" text-anchor="middle" class="brand-title navy-fill" font-size="118">ISHEMA</text>
+
+    <!-- ============================================== -->
+    <!-- 6. SUB-HEADER: — REAL ESTATE —                -->
+    <!-- ============================================== -->
+    <!-- Left Accent Line -->
+    <line x1="65" y1="652" x2="165" y2="652" stroke="#df9907" stroke-width="5" stroke-linecap="round" />
+    
+    <!-- REAL ESTATE Text -->
+    <text x="400" y="663" text-anchor="middle" class="brand-sub gold-fill" font-size="34">REAL ESTATE</text>
+    
+    <!-- Right Accent Line -->
+    <line x1="635" y1="652" x2="735" y2="652" stroke="#df9907" stroke-width="5" stroke-linecap="round" />
+
+    <!-- ============================================== -->
+    <!-- 7. OFFICIAL BRAND TAGLINE                      -->
+    <!-- ============================================== -->
+    <text x="400" y="718" text-anchor="middle" class="brand-tagline navy-fill" font-size="22">
+      Find Your Home. Find Your Land. Build Your Future.
+    </text>
+  </g>
+</svg>

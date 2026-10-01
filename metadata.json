@@ -1,0 +1,7 @@
+{
+  "name": "ISHEMA Real Estate",
+  "description": "Find your home, find your land, build your future. Premium Rwanda-based real estate platform for buying and renting houses, apartments, and land across Kigali and Rwanda.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
